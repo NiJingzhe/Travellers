@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ck5neditmyimq"
+path="res://.godot/imported/treeHigh.obj-f6b6e9c8b8015be4a70eb628d65a2923.mesh"
+
+[deps]
+
+files=["res://.godot/imported/treeHigh.obj-f6b6e9c8b8015be4a70eb628d65a2923.mesh"]
+
+source_file="res://model/tree/treeHigh.obj"
+dest_files=["res://.godot/imported/treeHigh.obj-f6b6e9c8b8015be4a70eb628d65a2923.mesh", "res://.godot/imported/treeHigh.obj-f6b6e9c8b8015be4a70eb628d65a2923.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
