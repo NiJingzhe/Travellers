@@ -10,7 +10,7 @@
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.07111, 1.32523, 0.883036)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.817145, 0.370262, -0.441792, -0.288216, 0.926184, 0.243136, 0.499205, -0.071346, 0.863542, 0, 9.76019, 4.09857)
+transform = Transform3D(-0.218301, 0.954101, 0.205026, -0.920888, -0.270933, 0.280288, 0.322971, -0.127619, 0.937765, 0, 9.76019, 4.09857)
 shadow_enabled = true
 
 [node name="test_map" parent="." instance=ExtResource("2_i4py4")]
