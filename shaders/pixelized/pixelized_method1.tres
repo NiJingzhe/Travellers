@@ -11,7 +11,7 @@ hint = 2
 max = 512.0
 step = 2.0
 default_value_enabled = true
-default_value = 8.0
+default_value = 200.0
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bewms"]
 output_port_for_preview = 0
@@ -32,14 +32,15 @@ op_type = 0
 operator = 3
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ypfmw"]
-source = 1
+output_port_for_preview = 0
+expanded_output_ports = [0]
 
 [resource]
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float pixelRate : hint_range(0, 512, 2) = 8;
-uniform sampler2D screen_tex_frg_7 : hint_screen_texture;
+uniform float pixelRate : hint_range(0, 512, 2) = 200;
+uniform sampler2D tex_frg_7;
 
 
 
@@ -64,9 +65,8 @@ void fragment() {
 	vec2 n_out6p0 = n_out5p0 / vec2(n_out3p0);
 
 
-	vec4 n_out7p0;
 // Texture2D:7
-	n_out7p0 = texture(screen_tex_frg_7, n_out6p0);
+	vec4 n_out7p0 = texture(tex_frg_7, n_out6p0);
 
 
 // Output:0
@@ -90,4 +90,4 @@ nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_t3wxs")
 nodes/fragment/6/position = Vector2(840, 220)
 nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_ypfmw")
 nodes/fragment/7/position = Vector2(1134.93, 269.123)
-nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 4, 1, 4, 0, 5, 0, 5, 0, 6, 0, 3, 0, 6, 1, 6, 0, 7, 0, 7, 0, 0, 0)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 1, 4, 0, 5, 0, 5, 0, 6, 0, 3, 0, 6, 1, 2, 0, 4, 0, 6, 0, 7, 0, 7, 0, 0, 0)

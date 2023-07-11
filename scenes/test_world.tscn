@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=15 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/player.tscn" id="1_cpdod"]
-[ext_resource type="PackedScene" uid="uid://7p7nnxrq2a1k" path="res://scenes/sun_system.tscn" id="1_doesi"]
+[ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/sun_system.tscn" id="1_doesi"]
+[ext_resource type="Curve" uid="uid://7vrfdv24ehbh" path="res://script/TimeSystem/energy_curve.tres" id="2_4vq68"]
 [ext_resource type="PackedScene" uid="uid://doeosqkm7i4vl" path="res://model/map/test_map/test_map.tscn" id="2_i4py4"]
+[ext_resource type="Curve" uid="uid://bvhm0bb68xq47" path="res://script/TimeSystem/angle_curve.tres" id="3_2o55c"]
 [ext_resource type="Shader" uid="uid://k6erj4lpdfxr" path="res://shaders/pixelized/pixelized_method1.tres" id="3_xqvfx"]
 [ext_resource type="Texture2D" uid="uid://12qyvg0nh4o8" path="res://icon.svg" id="4_m1yiy"]
+[ext_resource type="Curve" uid="uid://5eyg5xflqcxm" path="res://script/TimeSystem/shadow_blur_curve.tres" id="4_nlnxd"]
+[ext_resource type="Curve" uid="uid://cvfr7pi2i0fmp" path="res://script/TimeSystem/shadow_transparency_curve.tres" id="5_0bpn4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_44m1t"]
 sky_energy_multiplier = 0.2
@@ -40,6 +44,16 @@ environment = SubResource("Environment_cwefi")
 camera_attributes = SubResource("CameraAttributesPractical_inn51")
 
 [node name="SunSystem" parent="." instance=ExtResource("1_doesi")]
+energy_curve = ExtResource("2_4vq68")
+angle_curve = ExtResource("3_2o55c")
+shadow_blur_curve = ExtResource("4_nlnxd")
+shadow_transparency_curve = ExtResource("5_0bpn4")
+dawntime_color = Color(0.52549, 0.654902, 0.709804, 1)
+daytime_color = Color(0.905882, 0.898039, 0.796078, 1)
+dusktime_color = Color(0.886275, 0.384314, 0.317647, 1)
+nighttime_color = Color(0.2, 0.2, 0.501961, 1)
+time_of_whole_day = 20.0
+game_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource("1_cpdod")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.07111, 1.32523, 0.883036)
