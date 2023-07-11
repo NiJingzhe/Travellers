@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=18 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/player.tscn" id="1_cpdod"]
 [ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/sun_system.tscn" id="1_doesi"]
@@ -33,6 +33,14 @@ sdfgi_bounce_feedback = 0.3
 auto_exposure_scale = 0.08
 auto_exposure_speed = 0.2
 dof_blur_near_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7ce7"]
+size = Vector3(2.2805, 2.28679, 2.67969)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yrj6"]
+albedo_color = Color(0.85098, 0.47451, 0.603922, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wdg70"]
 
 [node name="TestWorld" type="Node3D"]
 
@@ -91,8 +99,21 @@ daytime_color = Color(0.905882, 0.898039, 0.796078, 1)
 dusktime_color = Color(0.886275, 0.384314, 0.317647, 1)
 nighttime_color = Color(0.2, 0.2, 0.501961, 1)
 time_of_whole_day = 20.0
-game_time = 2.0
 DAWN_START = 3.5
 DAY_START = 6.5
 DUSK_START = 16.5
 NIGHT_START = 19.5
+
+[node name="SaveArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68642, 4.20567, -4.77541)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SaveArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.112238, 0)
+shape = SubResource("BoxShape3D_o7ce7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SaveArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.24472, 0)
+material_override = SubResource("StandardMaterial3D_3yrj6")
+mesh = SubResource("PlaneMesh_wdg70")
+
+[connection signal="area_entered" from="SaveArea" to="Player" method="_on_save_area_area_entered"]

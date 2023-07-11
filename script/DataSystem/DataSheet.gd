@@ -104,4 +104,15 @@ func del_segment(segment_name : String) -> bool:
 		self.data_sheet.erase(segment_name)
 		return true	
 
+func save_sheet(save_path : String):
+	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
+	save_file.store_line(JSON.stringify(self.data_sheet))
+	save_file.close()
 
+func load_sheet(load_path : String):
+	if FileAccess.file_exists(load_path) == false:
+		print("DataSystem WARNING：你正在尝试从磁盘加载一个不存在的数据表！")
+		return
+	var load_file = FileAccess.open(load_path, FileAccess.READ)
+	self.data_sheet.merge((JSON.parse_string(load_file.get_as_text()) as Dictionary), true)
+	load_file.close()
