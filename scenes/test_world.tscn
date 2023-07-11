@@ -1,19 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=11 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/player.tscn" id="1_cpdod"]
+[ext_resource type="PackedScene" uid="uid://7p7nnxrq2a1k" path="res://scenes/sun_system.tscn" id="1_doesi"]
 [ext_resource type="PackedScene" uid="uid://doeosqkm7i4vl" path="res://model/map/test_map/test_map.tscn" id="2_i4py4"]
-[ext_resource type="PackedScene" uid="uid://o4j3bjvq5ecd" path="res://scenes/data_manager.tscn" id="3_qo6m8"]
+[ext_resource type="Shader" uid="uid://k6erj4lpdfxr" path="res://shaders/pixelized/pixelized_method1.tres" id="3_xqvfx"]
+[ext_resource type="Texture2D" uid="uid://12qyvg0nh4o8" path="res://icon.svg" id="4_m1yiy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_44m1t"]
+sky_energy_multiplier = 0.2
+
+[sub_resource type="Sky" id="Sky_6w7xv"]
+sky_material = SubResource("ProceduralSkyMaterial_44m1t")
+
+[sub_resource type="Environment" id="Environment_cwefi"]
+background_mode = 2
+sky = SubResource("Sky_6w7xv")
+ambient_light_source = 3
+ambient_light_color = Color(0.94902, 0.956863, 0.705882, 1)
+reflected_light_source = 2
+tonemap_mode = 2
+ssr_enabled = true
+ssr_max_steps = 128
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.3
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_inn51"]
+auto_exposure_scale = 0.08
+auto_exposure_speed = 0.2
+dof_blur_near_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ounqe"]
+shader = ExtResource("3_xqvfx")
+shader_parameter/pixelRate = 250.0
 
 [node name="TestWorld" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cwefi")
+camera_attributes = SubResource("CameraAttributesPractical_inn51")
+
+[node name="SunSystem" parent="." instance=ExtResource("1_doesi")]
 
 [node name="Player" parent="." instance=ExtResource("1_cpdod")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.07111, 1.32523, 0.883036)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.218301, 0.954101, 0.205026, -0.920888, -0.270933, 0.280288, 0.322971, -0.127619, 0.937765, 0, 9.76019, 4.09857)
-shadow_enabled = true
-
 [node name="test_map" parent="." instance=ExtResource("2_i4py4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="DataBase" parent="." instance=ExtResource("3_qo6m8")]
+[node name="LightOnStone4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93537, 6.93631, 5.26542)
+light_color = Color(0.831373, 0.839216, 0.572549, 1)
+shadow_enabled = true
+omni_range = 8.39905
+
+[node name="LightOnStone3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76362, 7.31466, 8.04921)
+light_color = Color(0.831373, 0.839216, 0.572549, 1)
+shadow_enabled = true
+omni_range = 8.39905
+
+[node name="LightOnStone2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36459, 6.297, -5.55856)
+light_color = Color(0.831373, 0.839216, 0.572549, 1)
+shadow_enabled = true
+omni_range = 6.26808
+omni_attenuation = 0.233258
+
+[node name="LightOnStone1" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46218, 6.25065, -2.03843)
+light_color = Color(0.87451, 0.847059, 0.6, 1)
+shadow_enabled = true
+omni_range = 6.46636
+omni_attenuation = 0.25
+
+[node name="pixelizedShaders" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_ounqe")
+position = Vector2(576, 324.5)
+scale = Vector2(9, 5.05469)
+texture = ExtResource("4_m1yiy")

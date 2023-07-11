@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://7p7nnxrq2a1k"]
+
+[ext_resource type="Script" path="res://script/TimeSystem/ShadowCaster.gd" id="1_mdjbs"]
+[ext_resource type="Script" path="res://script/TimeSystem/sun_system.gd" id="1_prdnq"]
+[ext_resource type="Script" path="res://script/TimeSystem/TimeSystemVisualEffect.gd" id="2_yyxts"]
+
+[sub_resource type="Curve" id="Curve_8fcsj"]
+bake_resolution = 200
+_data = [Vector2(0.0762332, 0.178947), 0.0, 0.0, 0, 0, Vector2(0.237668, 0.242105), 0.0, 0.0, 0, 0, Vector2(0.497758, 1), 0.0, 0.0, 0, 0, Vector2(0.61435, 1), 0.0, 0.0, 0, 0, Vector2(0.878924, 0.189474), 0.0, 0.0, 0, 0, Vector2(1, 0.168421), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="Curve" id="Curve_usimw"]
+min_value = -180.0
+max_value = 180.0
+_data = [Vector2(0, -180), 0.0, 0.0, 0, 0, Vector2(0.25, -90), 0.0, 0.0, 0, 0, Vector2(0.5, -20), 0.0, 0.0, 0, 0, Vector2(0.75, 90), 0.0, 0.0, 0, 0, Vector2(1, 180), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_npf70"]
+_data = [Vector2(0, 1), 0.0, 0.0716755, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.255605, 0.621053), -4.2805, -4.2805, 0, 0, Vector2(0.515695, 0.2), 0.0266749, 0.0266749, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_ehxch"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.224215, 0), 0.0, 0.0, 0, 0, Vector2(0.493274, 0.715789), 1.51443, 1.51443, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="SunSystem" type="Node3D"]
+script = ExtResource("1_prdnq")
+energy_curve = SubResource("Curve_8fcsj")
+dawntime_color = Color(0.341176, 0.443137, 0.517647, 1)
+dusktime_color = Color(0.854902, 0.376471, 0.337255, 1)
+time_of_whole_day = 20.0
+angle_curve = SubResource("Curve_usimw")
+shadow_blur_curve = SubResource("Curve_npf70")
+shadow_transparency_curve = SubResource("Curve_ehxch")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="ShadowCaster" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.969343, -9.02771e-10, 0.245713, 9.31323e-10, 1, 0, -0.245713, 2.28838e-10, 0.969343, 1, 7.69132, -1.07288e-06)
+light_energy = 0.6
+shadow_enabled = true
+shadow_bias = 0.25
+shadow_normal_bias = 3.0
+shadow_reverse_cull_face = true
+shadow_blur = 0.2
+directional_shadow_blend_splits = true
+script = ExtResource("1_mdjbs")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.183013, 0.183013, 0, 0.707107, 0.707107, -0.258819, -0.683013, 0.683013, 0, 11, 0)
+shadow_normal_bias = 2.6
+shadow_reverse_cull_face = true
+shadow_blur = 0.2
+script = ExtResource("2_yyxts")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
