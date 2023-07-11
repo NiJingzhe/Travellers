@@ -6,6 +6,10 @@
 
 [node name="SunSystem" type="Node3D"]
 script = ExtResource("1_0u6f4")
+DAWN_START = null
+DAY_START = null
+DUSK_START = null
+NIGHT_START = null
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

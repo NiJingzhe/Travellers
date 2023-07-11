@@ -11,10 +11,10 @@ extends DirectionalLight3D
 @onready var dusktime_color : Color = root.dusktime_color
 @onready var nighttime_color : Color = root.nighttime_color
 @onready var time_of_whole_day : float = root.time_of_whole_day
-@onready var DAWN_START : float = 3.5
-@onready var DAY_START : float = 6.5
-@onready var DUSK_START : float = 16.5
-@onready var NIGHT_START : float = 19.5
+@onready var DAWN_START : float = root.DAWN_START
+@onready var DAY_START : float = root.DAY_START
+@onready var DUSK_START : float = root.DUSK_START
+@onready var NIGHT_START : float = root.NIGHT_START
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#angle_curve.bake()

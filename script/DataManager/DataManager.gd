@@ -10,5 +10,5 @@ class_name DataManager
 #记录的增删
 #根据某个字段值查找记录
 
-
+@export 
 

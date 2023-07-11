@@ -54,6 +54,10 @@ dusktime_color = Color(0.886275, 0.384314, 0.317647, 1)
 nighttime_color = Color(0.2, 0.2, 0.501961, 1)
 time_of_whole_day = 20.0
 game_time = 2.0
+DAWN_START = 3.5
+DAY_START = 6.5
+DUSK_START = 16.5
+NIGHT_START = 19.5
 
 [node name="Player" parent="." instance=ExtResource("1_cpdod")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.07111, 1.32523, 0.883036)

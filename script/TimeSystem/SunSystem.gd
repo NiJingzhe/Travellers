@@ -20,7 +20,10 @@ class_name SunSystem
 @export var nighttime_color : Color = Color(0.2, 0.2, 0.5, 1)
 @export var time_of_whole_day : float
 @export var game_time : float = 12.0
-
+@export var DAWN_START : float = 3.5
+@export var DAY_START : float = 6.5
+@export var DUSK_START : float = 16.5
+@export var NIGHT_START : float = 19.5
 
 
 # Called when the node enters the scene tree for the first time.
