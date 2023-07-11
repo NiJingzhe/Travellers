@@ -26,9 +26,11 @@ point_count = 4
 [node name="SunSystem" type="Node3D"]
 script = ExtResource("1_prdnq")
 energy_curve = SubResource("Curve_8fcsj")
-dawntime_color = Color(0.341176, 0.443137, 0.517647, 1)
+dawntime_color = Color(0.588235, 0.690196, 0.768627, 1)
+daytime_color = Color(0.976471, 0.945098, 0.694118, 1)
 dusktime_color = Color(0.854902, 0.376471, 0.337255, 1)
 time_of_whole_day = 20.0
+game_time = 6.0
 angle_curve = SubResource("Curve_usimw")
 shadow_blur_curve = SubResource("Curve_npf70")
 shadow_transparency_curve = SubResource("Curve_ehxch")
@@ -38,10 +40,10 @@ wait_time = 0.1
 autostart = true
 
 [node name="ShadowCaster" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.969343, -9.02771e-10, 0.245713, 9.31323e-10, 1, 0, -0.245713, 2.28838e-10, 0.969343, 1, 7.69132, -1.07288e-06)
+transform = Transform3D(0.923143, -8.59744e-10, 0.384456, 9.31323e-10, 1, 8.49685e-17, -0.384456, 3.58053e-10, 0.923143, 1, 7.69132, -1.07288e-06)
 light_energy = 0.6
 shadow_enabled = true
-shadow_bias = 0.25
+shadow_bias = 0.3
 shadow_normal_bias = 3.0
 shadow_reverse_cull_face = true
 shadow_blur = 0.2
@@ -49,7 +51,7 @@ directional_shadow_blend_splits = true
 script = ExtResource("1_mdjbs")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.965926, -0.183013, 0.183013, 0, 0.707107, 0.707107, -0.258819, -0.683013, 0.683013, 0, 11, 0)
+transform = Transform3D(0.921831, 0.0365482, 0.385865, -0.354956, -0.320239, 0.878324, 0.15567, -0.946631, -0.282234, 0, 11, 0)
 shadow_normal_bias = 2.6
 shadow_reverse_cull_face = true
 shadow_blur = 0.2

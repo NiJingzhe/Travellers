@@ -32,15 +32,15 @@ func _process(delta):
 	elif game_time > DAY_START and game_time <= get_mid_value(DAY_START, DUSK_START, 0.6):
 		sun.light_color = daytime_color
 	elif game_time > get_mid_value(DAY_START, DUSK_START, 0.6) and game_time <= DUSK_START:
-		sun.light_color = daytime_color.lerp(dusktime_color, get_weight(get_mid_value(DAY_START, DUSK_START, 0.7), DUSK_START, game_time))
+		sun.light_color = daytime_color.lerp(dusktime_color, get_weight(get_mid_value(DAY_START, DUSK_START, 0.6), DUSK_START, game_time))
 	elif game_time > DUSK_START and game_time <= get_mid_value(DUSK_START, NIGHT_START, 0.8):
 		sun.light_color = dusktime_color
 	elif game_time > get_mid_value(DUSK_START, NIGHT_START, 0.8) and game_time < NIGHT_START:
 		sun.light_color = dusktime_color.lerp(nighttime_color, get_weight(get_mid_value(DUSK_START, NIGHT_START, 0.8), NIGHT_START, game_time))
-	elif game_time > NIGHT_START or game_time <= 24:
+	elif game_time > NIGHT_START or game_time < 2:
 		sun.light_color = nighttime_color
 	elif game_time >= 2 and game_time <= DAWN_START:
-		sun.light_color = nighttime_color.lerp(dawntime_color, get_weight(0, DAWN_START, game_time))
+		sun.light_color = nighttime_color.lerp(dawntime_color, get_weight(2, DAWN_START, game_time))
 
 func get_mid_value(start:float, end:float, t:float) -> float:
 	return t * (end - start) + start
