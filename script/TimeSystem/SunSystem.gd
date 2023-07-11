@@ -25,6 +25,8 @@ class_name SunSystem
 @export var DUSK_START : float = 16.5
 @export var NIGHT_START : float = 19.5
 
+@onready var data_base : DataSheet = self.get_node("../DataBase") as DataSheet
+@onready var time_sheet : DataSheet = data_base.query_log("sheet_name", "TimeSheet")["sheet_node"] as DataSheet
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,12 +35,8 @@ func _ready():
 	shadow_blur_curve.bake()
 	shadow_transparency_curve.bake()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_timer_timeout():
 	game_time += 24 / time_of_whole_day / 10
 	if game_time >= 24:
 		game_time = 0
+	self.time_sheet.set_value("GameTime", 0, game_time)

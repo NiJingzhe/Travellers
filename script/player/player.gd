@@ -7,12 +7,18 @@ const JUMP_VELOCITY = 5.0
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var animation_state = animation_tree.get('parameters/playback')
+
+@onready var data_base : DataSheet = self.get_node("../DataBase") as DataSheet
+@onready var player_sheet : DataSheet = data_base.query_log("sheet_name", "PlayerSheet")["sheet_node"] as DataSheet
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	animation_tree.active = true
 	animation_player.speed_scale = 5
+	self.player_sheet.add_segment("PlayerPosition")
+	self.player_sheet.set_value("PlayerPosition", 0, self.position)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -42,3 +48,5 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+	self.player_sheet.set_value("PlayerPosition", 0, self.position)
