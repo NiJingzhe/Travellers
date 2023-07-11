@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/player.tscn" id="1_cpdod"]
-[ext_resource type="PackedScene" uid="uid://7p7nnxrq2a1k" path="res://scenes/sun_system.tscn" id="1_doesi"]
+[ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/sun_system.tscn" id="1_doesi"]
 [ext_resource type="PackedScene" uid="uid://doeosqkm7i4vl" path="res://model/map/test_map/test_map.tscn" id="2_i4py4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_44m1t"]
@@ -34,7 +34,11 @@ environment = SubResource("Environment_cwefi")
 camera_attributes = SubResource("CameraAttributesPractical_inn51")
 
 [node name="SunSystem" parent="." instance=ExtResource("1_doesi")]
+editor_description = "Energy Curve是light_energy关于game_time的函数，横坐标0-1对应game_time的0-24
+Shadow Blur Curve和Shadow Transparency Curve是阴影的模糊程度和透明度关于光强的函数
+Angle Curve比较特殊，虽然也是太阳角度关于game_time的函数，但是为了正确的处理间断点，整体曲线向左平移了0.25，即6 hours，这是为了让间断点产生在曲线边界，即其横坐标0-0.75对应的是game_time的6-24，0.75-1对应game_time的0-6，自定义曲线时要注意这点"
 time_of_whole_day = 120.0
+game_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource("1_cpdod")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.07111, 1.32523, 0.883036)

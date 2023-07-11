@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://7p7nnxrq2a1k"]
+[gd_scene load_steps=8 format=3 uid="uid://doqsjhvimdh2o"]
 
+[ext_resource type="Script" path="res://script/TimeSystem/SunSystem.gd" id="1_0u6f4"]
 [ext_resource type="Script" path="res://script/TimeSystem/ShadowCaster.gd" id="1_mdjbs"]
-[ext_resource type="Script" path="res://script/TimeSystem/sun_system.gd" id="1_prdnq"]
-[ext_resource type="Script" path="res://script/TimeSystem/TimeSystemVisualEffect.gd" id="2_yyxts"]
+[ext_resource type="Script" path="res://script/TimeSystem/ColorLight.gd" id="3_sho2e"]
 
 [sub_resource type="Curve" id="Curve_8fcsj"]
 bake_resolution = 200
@@ -24,16 +24,16 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.224215, 0), 0.0, 0.0, 0, 0, Ve
 point_count = 4
 
 [node name="SunSystem" type="Node3D"]
-script = ExtResource("1_prdnq")
+script = ExtResource("1_0u6f4")
 energy_curve = SubResource("Curve_8fcsj")
+angle_curve = SubResource("Curve_usimw")
+shadow_blur_curve = SubResource("Curve_npf70")
+shadow_transparency_curve = SubResource("Curve_ehxch")
 dawntime_color = Color(0.588235, 0.690196, 0.768627, 1)
 daytime_color = Color(0.976471, 0.945098, 0.694118, 1)
 dusktime_color = Color(0.854902, 0.376471, 0.337255, 1)
 time_of_whole_day = 20.0
 game_time = 6.0
-angle_curve = SubResource("Curve_usimw")
-shadow_blur_curve = SubResource("Curve_npf70")
-shadow_transparency_curve = SubResource("Curve_ehxch")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -55,6 +55,6 @@ transform = Transform3D(0.921831, 0.0365482, 0.385865, -0.354956, -0.320239, 0.8
 shadow_normal_bias = 2.6
 shadow_reverse_cull_face = true
 shadow_blur = 0.2
-script = ExtResource("2_yyxts")
+script = ExtResource("3_sho2e")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
