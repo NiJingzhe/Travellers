@@ -6,7 +6,7 @@ func _ready():
 		self.add_log({"sheet_name" : child_node.name, "sheet_path" : child_node.get_path()})
 	self.load_game()
 		
-func _process(delta):
+func _process(_delta):
 	if Input.is_key_pressed(KEY_F1):
 		print("保存游戏！")
 		self.save_game()	

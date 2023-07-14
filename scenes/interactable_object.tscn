@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqcrspcynf4uc"]
+
+[ext_resource type="Script" path="res://script/InteractableObject/InteractableObject.gd" id="1_tilhk"]
+
+[node name="InteractableObject" type="Node3D"]
+script = ExtResource("1_tilhk")
+detect_list = null

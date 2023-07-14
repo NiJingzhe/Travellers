@@ -19,7 +19,7 @@ func _ready():
 	pass
 	#energy_curve.bake()
 
-func _process(delta):
+func _process(_delta):
 	
 	game_time = root.game_time
 	

@@ -23,7 +23,7 @@ func _ready():
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	game_time = root.game_time
 	self.light_energy = energy_curve.sample_baked(game_time / 24)
 	var temp_game_time = game_time / 24 - 0.25

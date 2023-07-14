@@ -6,10 +6,6 @@
 
 [node name="SunSystem" type="Node3D"]
 script = ExtResource("1_0u6f4")
-DAWN_START = null
-DAY_START = null
-DUSK_START = null
-NIGHT_START = null
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -18,12 +14,11 @@ autostart = true
 [node name="ShadowCaster" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.969343, -9.02771e-10, 0.245713, 9.31323e-10, 1, 0, -0.245713, 2.28838e-10, 0.969343, 1, 7.69132, -1.07288e-06)
 light_energy = 0.6
+light_cull_mask = 4293918721
 shadow_enabled = true
-shadow_bias = 0.25
-shadow_normal_bias = 3.0
-shadow_reverse_cull_face = true
-shadow_blur = 0.2
-directional_shadow_blend_splits = true
+directional_shadow_split_1 = 0.289
+directional_shadow_split_2 = 0.434
+directional_shadow_split_3 = 0.57
 script = ExtResource("1_mdjbs")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://doeosqkm7i4vl"]
+[gd_scene load_steps=16 format=3 uid="uid://doeosqkm7i4vl"]
 
 [ext_resource type="PackedScene" uid="uid://bbfldinuv4d7p" path="res://model/map/test_map/test_map.glb" id="1_xurgd"]
+[ext_resource type="PackedScene" uid="uid://b4t1wl60lymmo" path="res://model/box/test_box.tscn" id="2_1pmuw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mr8cb"]
 shading_mode = 2
@@ -119,3 +120,32 @@ shape = SubResource("ConcavePolygonShape3D_fwx2m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="立方体004/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_33xlo")
+
+[node name="LightOnTower1" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5.04861, 6.99519, 3.60156)
+light_color = Color(0.807843, 0.831373, 0.556863, 1)
+shadow_enabled = true
+omni_range = 8.65858
+omni_attenuation = 0.176777
+
+[node name="LightOnTower2" type="OmniLight3D" parent="." index="7"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8.27776, 7.06287, 3.61262)
+light_color = Color(0.807843, 0.831373, 0.556863, 1)
+shadow_enabled = true
+omni_range = 8.51928
+omni_attenuation = 0.176777
+
+[node name="LightOnStone2" type="OmniLight3D" parent="." index="8"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -5.40742, 5.96176, 1.0674)
+light_color = Color(0.807843, 0.831373, 0.556863, 1)
+shadow_enabled = true
+omni_attenuation = 0.176777
+
+[node name="LightOnStone1" type="OmniLight3D" parent="." index="9"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -2.17827, 6.02944, 1.07846)
+light_color = Color(0.807843, 0.831373, 0.556863, 1)
+shadow_enabled = true
+omni_attenuation = 0.176777
+
+[node name="box" parent="." index="10" instance=ExtResource("2_1pmuw")]
+transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, -2.05924, 2.87828, 8.35466)

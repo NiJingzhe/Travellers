@@ -48,7 +48,7 @@ func _physics_process(delta):
 		animation_state.travel('Walk')
 	else:
 		animation_state.travel('Idle')
-	var direction = (transform.basis * Vector3(input_dir.y, 0, -input_dir.x)).normalized()
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
 		velocity.x = direction.x * SPEED
