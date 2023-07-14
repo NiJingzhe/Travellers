@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=19 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/player.tscn" id="1_cpdod"]
 [ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/sun_system.tscn" id="1_doesi"]
@@ -8,8 +8,7 @@
 [ext_resource type="Script" path="res://script/DataSystem/test_world_TimeSheet.gd" id="3_wpfjq"]
 [ext_resource type="Curve" uid="uid://5eyg5xflqcxm" path="res://script/TimeSystem/shadow_blur_curve.tres" id="4_nlnxd"]
 [ext_resource type="Curve" uid="uid://cvfr7pi2i0fmp" path="res://script/TimeSystem/shadow_transparency_curve.tres" id="5_0bpn4"]
-[ext_resource type="PackedScene" uid="uid://d12vu4a6ygy3q" path="res://model/map/test_room/testroom.tscn" id="5_ii11c"]
-[ext_resource type="PackedScene" uid="uid://b4t1wl60lymmo" path="res://model/box/test_box.tscn" id="6_731d1"]
+[ext_resource type="PackedScene" uid="uid://dwax20atchnfi" path="res://model/map/test_room/testroom.tscn" id="5_ii11c"]
 [ext_resource type="PackedScene" uid="uid://doeosqkm7i4vl" path="res://model/map/test_map/test_map.tscn" id="7_4chcs"]
 [ext_resource type="Script" path="res://script/DataSystem/test_world_DataBase.gd" id="8_48x2v"]
 
@@ -60,43 +59,14 @@ script = ExtResource("2_y3lkh")
 script = ExtResource("3_wpfjq")
 
 [node name="Player" parent="." instance=ExtResource("1_cpdod")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.07111, 1.75961, 0.883036)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.07111, 1.9074, 0.883036)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cwefi")
 camera_attributes = SubResource("CameraAttributesPractical_inn51")
 
-[node name="LightOnStone4" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93537, 6.93631, 5.26542)
-light_color = Color(0.831373, 0.839216, 0.572549, 1)
-shadow_enabled = true
-omni_range = 8.39905
-
-[node name="LightOnStone3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76362, 7.31466, 8.04921)
-light_color = Color(0.831373, 0.839216, 0.572549, 1)
-shadow_enabled = true
-omni_range = 8.39905
-
-[node name="LightOnStone2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36459, 6.297, -5.55856)
-light_color = Color(0.831373, 0.839216, 0.572549, 1)
-shadow_enabled = true
-omni_range = 6.26808
-omni_attenuation = 0.233258
-
-[node name="LightOnStone1" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46218, 6.25065, -2.03843)
-light_color = Color(0.87451, 0.847059, 0.6, 1)
-shadow_enabled = true
-omni_range = 6.46636
-omni_attenuation = 0.25
-
 [node name="test_map" parent="." instance=ExtResource("7_4chcs")]
 transform = Transform3D(0.0228444, 0, -0.999739, 0, 1, 0, 0.999739, 0, 0.0228444, -0.030098, 0.599033, -0.373697)
-
-[node name="box" parent="." instance=ExtResource("6_731d1")]
-transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -8.64778, 3.47696, -2.29386)
 
 [node name="SunSystem" parent="." instance=ExtResource("1_doesi")]
 energy_curve = ExtResource("2_4vq68")
