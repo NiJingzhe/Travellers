@@ -36,6 +36,13 @@ func _ready():
 
 func _on_timer_timeout():
 	game_time = time_sheet.get_value("GameTime", 0)
+	##################### DEVELOP FUNCTION #########################
+	if Input.is_key_pressed(KEY_F5):
+		game_time -= 1
+	if Input.is_key_pressed(KEY_F6):
+		game_time += 1
+	
+	################################################################
 	game_time += 24 / time_of_whole_day / 10
 	if game_time >= 24:
 		game_time = 0

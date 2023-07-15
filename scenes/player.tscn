@@ -247,13 +247,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134864, 0)
 shape = SubResource("CapsuleShape3D_4vu74")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.499999, -0.707107, -0.353553, 0.612373, 7.44909, 6.3311, 7.44414)
+transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.499999, -0.707107, -0.353553, 0.612373, 3.65916, 3.07139, 3.72115)
 current = true
-fov = 15.0
-size = 6.0
+fov = 25.0
+size = 8.0
 
 [node name="PlayerArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134864, 0)
 shape = SubResource("CapsuleShape3D_4vu74")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
