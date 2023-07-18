@@ -247,10 +247,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134864, 0)
 shape = SubResource("CapsuleShape3D_4vu74")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.499999, -0.707107, -0.353553, 0.612373, 3.65916, 3.07139, 3.72115)
+transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.499999, -0.707107, -0.353553, 0.612373, 3.659, 3.071, 3.659)
+projection = 1
 current = true
 fov = 25.0
-size = 8.0
+size = 15.0
+far = 40.0
 
 [node name="PlayerArea" type="Area3D" parent="."]
 

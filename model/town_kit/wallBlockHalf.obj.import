@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cel5orkcfltcr"
+path="res://.godot/imported/wallBlockHalf.obj-95e3e2820680f232375f29da27629c0a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallBlockHalf.obj-95e3e2820680f232375f29da27629c0a.mesh"]
+
+source_file="res://model/town_kit/wallBlockHalf.obj"
+dest_files=["res://.godot/imported/wallBlockHalf.obj-95e3e2820680f232375f29da27629c0a.mesh", "res://.godot/imported/wallBlockHalf.obj-95e3e2820680f232375f29da27629c0a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

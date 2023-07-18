@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://i3l2yomyda0d"
+path="res://.godot/imported/rockLarge.obj-80cc4905bdce4d3cd507d26877ebea55.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rockLarge.obj-80cc4905bdce4d3cd507d26877ebea55.mesh"]
+
+source_file="res://model/town_kit/rockLarge.obj"
+dest_files=["res://.godot/imported/rockLarge.obj-80cc4905bdce4d3cd507d26877ebea55.mesh", "res://.godot/imported/rockLarge.obj-80cc4905bdce4d3cd507d26877ebea55.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

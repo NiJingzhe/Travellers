@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://6rhcddx266y8"
+path="res://.godot/imported/wallWoodCurved.obj-6bbd2d25d09dcb3616a0c797c026de2e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallWoodCurved.obj-6bbd2d25d09dcb3616a0c797c026de2e.mesh"]
+
+source_file="res://model/town_kit/wallWoodCurved.obj"
+dest_files=["res://.godot/imported/wallWoodCurved.obj-6bbd2d25d09dcb3616a0c797c026de2e.mesh", "res://.godot/imported/wallWoodCurved.obj-6bbd2d25d09dcb3616a0c797c026de2e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -5,8 +5,10 @@
 
 [resource]
 resource_name = "材质"
+render_priority = 1
 cull_mode = 2
 diffuse_mode = 3
+specular_mode = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_1uuui")
 roughness = 0.8

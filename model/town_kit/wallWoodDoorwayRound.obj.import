@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://h5ab78ckwwj4"
+path="res://.godot/imported/wallWoodDoorwayRound.obj-e3e2bb4a5cf3cf94d999c282b2addf9a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallWoodDoorwayRound.obj-e3e2bb4a5cf3cf94d999c282b2addf9a.mesh"]
+
+source_file="res://model/town_kit/wallWoodDoorwayRound.obj"
+dest_files=["res://.godot/imported/wallWoodDoorwayRound.obj-e3e2bb4a5cf3cf94d999c282b2addf9a.mesh", "res://.godot/imported/wallWoodDoorwayRound.obj-e3e2bb4a5cf3cf94d999c282b2addf9a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

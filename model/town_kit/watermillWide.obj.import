@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmucfkvg0mv88"
+path="res://.godot/imported/watermillWide.obj-4f5989e32e8d196e907831d8aef10b18.mesh"
+
+[deps]
+
+files=["res://.godot/imported/watermillWide.obj-4f5989e32e8d196e907831d8aef10b18.mesh"]
+
+source_file="res://model/town_kit/watermillWide.obj"
+dest_files=["res://.godot/imported/watermillWide.obj-4f5989e32e8d196e907831d8aef10b18.mesh", "res://.godot/imported/watermillWide.obj-4f5989e32e8d196e907831d8aef10b18.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

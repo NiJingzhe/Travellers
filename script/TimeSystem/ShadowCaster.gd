@@ -1,11 +1,14 @@
 extends DirectionalLight3D
 
 @onready var root : SunSystem = self.get_parent() as SunSystem
+@onready var energy_curve : Curve = root.energy_curve
+@onready var energy_factor : float = root.energy_factor
 @onready var angle_curve : Curve = root.angle_curve     #整体向左侧平移了0.25个循环
 @onready var shadow_blur_curve : Curve = root.shadow_blur_curve
+@onready var shadow_blur_factor : float = root.shadow_blur_factor
 @onready var shadow_transparency_curve : Curve = root.shadow_transparency_curve
+@onready var shadow_transparency_factor : float = root.shadow_transparency_factor
 @onready var game_time = root.game_time
-@onready var energy_curve : Curve = root.energy_curve
 @onready var dawntime_color : Color = root.dawntime_color
 @onready var daytime_color : Color = root.daytime_color
 @onready var dusktime_color : Color = root.dusktime_color
@@ -25,13 +28,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	game_time = root.game_time
-	self.light_energy = energy_curve.sample_baked(game_time / 24)
+	self.light_energy = energy_curve.sample_baked(game_time / 24) * energy_factor
 	var temp_game_time = game_time / 24 - 0.25
 	if temp_game_time < 0:
 		temp_game_time += 1
 	self.rotation_degrees.x = angle_curve.sample_baked(temp_game_time)
-	self.shadow_blur = shadow_blur_curve.sample_baked(self.light_energy)
-	self.shadow_opacity = shadow_transparency_curve.sample_baked(self.light_energy)
+	self.shadow_blur = shadow_blur_curve.sample_baked(self.light_energy) * shadow_blur_factor
+	self.shadow_opacity = shadow_transparency_curve.sample_baked(self.light_energy) * shadow_transparency_factor
 	
 	if self.rotation_degrees.x > 10 and self.rotation_degrees.x < 170:
 		self.shadow_enabled = false

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cckatskgkr42p"
+path="res://.godot/imported/planksHalf.obj-0dd88bb879b5e8b63138fdd97b708abd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/planksHalf.obj-0dd88bb879b5e8b63138fdd97b708abd.mesh"]
+
+source_file="res://model/town_kit/planksHalf.obj"
+dest_files=["res://.godot/imported/planksHalf.obj-0dd88bb879b5e8b63138fdd97b708abd.mesh", "res://.godot/imported/planksHalf.obj-0dd88bb879b5e8b63138fdd97b708abd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

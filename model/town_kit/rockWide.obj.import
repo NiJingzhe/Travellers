@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cnkoi1r7abh60"
+path="res://.godot/imported/rockWide.obj-a5eb662a71e3f6b15a30843f1a4e3b32.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rockWide.obj-a5eb662a71e3f6b15a30843f1a4e3b32.mesh"]
+
+source_file="res://model/town_kit/rockWide.obj"
+dest_files=["res://.godot/imported/rockWide.obj-a5eb662a71e3f6b15a30843f1a4e3b32.mesh", "res://.godot/imported/rockWide.obj-a5eb662a71e3f6b15a30843f1a4e3b32.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

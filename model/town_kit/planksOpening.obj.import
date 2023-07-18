@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c0prqnsjma5f7"
+path="res://.godot/imported/planksOpening.obj-f02862f87ae9f3baa086e91ad1752a0e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/planksOpening.obj-f02862f87ae9f3baa086e91ad1752a0e.mesh"]
+
+source_file="res://model/town_kit/planksOpening.obj"
+dest_files=["res://.godot/imported/planksOpening.obj-f02862f87ae9f3baa086e91ad1752a0e.mesh", "res://.godot/imported/planksOpening.obj-f02862f87ae9f3baa086e91ad1752a0e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -195,7 +195,7 @@ shape = SubResource("ConcavePolygonShape3D_tkhxf")
 
 [node name="箱盖" parent="." index="2"]
 transform = Transform3D(-3.31314e-06, -1.57124, 0, 0.915235, -5.68787e-06, 0, 0, 0, 0.915235, -0.00142857, 1.81778, 0.172807)
-surface_material_override/0 = ExtResource("2_u85fk")
+material_override = ExtResource("2_u85fk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="箱盖" index="0"]
 
