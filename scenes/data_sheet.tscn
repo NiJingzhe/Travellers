@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://o4j3bjvq5ecd"]
-
-[ext_resource type="Script" path="res://script/DataSystem/DataSheet.gd" id="1_pj8c5"]
-
-[node name="DataSheet" type="Node"]
-script = ExtResource("1_pj8c5")

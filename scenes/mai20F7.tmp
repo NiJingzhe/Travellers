@@ -1,17 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=24 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/player.tscn" id="1_cpdod"]
 [ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/sun_system.tscn" id="1_doesi"]
 [ext_resource type="Curve" uid="uid://7vrfdv24ehbh" path="res://script/TimeSystem/energy_curve.tres" id="2_4vq68"]
+[ext_resource type="Script" path="res://script/FSM/ExampleObject.gd" id="2_re173"]
 [ext_resource type="Script" path="res://script/DataSystem/test_world_PlayerSheet.gd" id="2_y3lkh"]
 [ext_resource type="Curve" uid="uid://bvhm0bb68xq47" path="res://script/TimeSystem/angle_curve.tres" id="3_2o55c"]
 [ext_resource type="Script" path="res://script/DataSystem/test_world_TimeSheet.gd" id="3_wpfjq"]
 [ext_resource type="Curve" uid="uid://5eyg5xflqcxm" path="res://script/TimeSystem/shadow_blur_curve.tres" id="4_nlnxd"]
 [ext_resource type="Curve" uid="uid://cvfr7pi2i0fmp" path="res://script/TimeSystem/shadow_transparency_curve.tres" id="5_0bpn4"]
-[ext_resource type="Script" path="res://script/FSM/test_world_PlayerStateMachine.gd" id="5_l215t"]
-[ext_resource type="Script" path="res://script/FSM/test_world_Player_NullState.gd" id="6_x0rd8"]
 [ext_resource type="PackedScene" uid="uid://doeosqkm7i4vl" path="res://model/map/test_map/test_map.tscn" id="7_4chcs"]
-[ext_resource type="Script" path="res://script/FSM/test_world_Player_WalkState.gd" id="7_ttkqe"]
 [ext_resource type="Script" path="res://script/DataSystem/test_world_DataBase.gd" id="8_48x2v"]
 [ext_resource type="Shader" uid="uid://k6erj4lpdfxr" path="res://shaders/pixelized/pixelized_method1.tres" id="13_dc21e"]
 [ext_resource type="Shader" path="res://shaders/post_process_outline/dep_norm_outline.gdshader" id="13_kc8tg"]
@@ -84,13 +82,11 @@ script = ExtResource("3_wpfjq")
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.07111, 1.9074, 0.883036)
 
 [node name="PlayerStateMachine" type="Node" parent="Player"]
-script = ExtResource("5_l215t")
+script = ExtResource("2_re173")
 
 [node name="NullState" type="Node" parent="Player/PlayerStateMachine"]
-script = ExtResource("6_x0rd8")
 
 [node name="WalkState" type="Node" parent="Player/PlayerStateMachine"]
-script = ExtResource("7_ttkqe")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cwefi")
