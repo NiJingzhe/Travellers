@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=27 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/player.tscn" id="1_cpdod"]
 [ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/sun_system.tscn" id="1_doesi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://script/DataSystem/test_world_PlayerSheet.gd" id="2_y3lkh"]
 [ext_resource type="Curve" uid="uid://bvhm0bb68xq47" path="res://script/TimeSystem/angle_curve.tres" id="3_2o55c"]
 [ext_resource type="Script" path="res://script/DataSystem/test_world_TimeSheet.gd" id="3_wpfjq"]
+[ext_resource type="Script" path="res://script/DataSystem/InventorySheet.gd" id="4_2sh5q"]
 [ext_resource type="Curve" uid="uid://5eyg5xflqcxm" path="res://script/TimeSystem/shadow_blur_curve.tres" id="4_nlnxd"]
 [ext_resource type="Curve" uid="uid://cvfr7pi2i0fmp" path="res://script/TimeSystem/shadow_transparency_curve.tres" id="5_0bpn4"]
 [ext_resource type="Script" path="res://script/FSM/test_world_PlayerStateMachine.gd" id="5_l215t"]
@@ -79,6 +80,9 @@ script = ExtResource("2_y3lkh")
 
 [node name="TimeSheet" type="Node" parent="DataBase"]
 script = ExtResource("3_wpfjq")
+
+[node name="InventorySheet" type="Node" parent="DataBase"]
+script = ExtResource("4_2sh5q")
 
 [node name="Player" parent="." instance=ExtResource("1_cpdod")]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.07111, 1.9074, 0.883036)
