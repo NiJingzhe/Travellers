@@ -65,5 +65,8 @@ func _physics_process(delta):
 
 func _on_save_area_area_entered(area):
 	if area.name == "PlayerArea":
-		print("进入存档点！")
-		(data_base as DataBase).save_game()
+		print("transform")
+		var transform_area2 : Area3D = get_node("../transformArea2") as Area3D
+		print(self.position)
+		self.set_position(transform_area2.position)
+		print(self.position)

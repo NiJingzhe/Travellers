@@ -1,7 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://doeosqkm7i4vl"]
+[gd_scene load_steps=39 format=3 uid="uid://doeosqkm7i4vl"]
 
 [ext_resource type="Shader" path="res://shaders/toon_shaders/outline.gdshader" id="2_0dljs"]
-[ext_resource type="PackedScene" uid="uid://b4t1wl60lymmo" path="res://model/box/test_box.tscn" id="2_1pmuw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xef7r"]
 render_priority = 0
@@ -379,6 +378,3 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -2.17827
 light_color = Color(0.807843, 0.831373, 0.556863, 1)
 shadow_enabled = true
 omni_attenuation = 0.176777
-
-[node name="box" parent="." instance=ExtResource("2_1pmuw")]
-transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, -2.05924, 2.87828, 8.35466)

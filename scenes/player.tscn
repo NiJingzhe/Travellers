@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://6uqhlg6628o8"]
+[gd_scene load_steps=30 format=3 uid="uid://6uqhlg6628o8"]
 
 [ext_resource type="Texture2D" uid="uid://bpbu02blyg7em" path="res://texture/role/model_character.png" id="1_rae54"]
 [ext_resource type="Script" path="res://script/player/player.gd" id="1_sr7nm"]
+[ext_resource type="Shader" path="res://shaders/post_process_outline/dep_norm_outline.gdshader" id="3_dgvtb"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wsmg6"]
 animation = &"left_idle"
@@ -219,6 +220,25 @@ _data = {
 radius = 0.129754
 height = 0.320359
 
+[sub_resource type="QuadMesh" id="QuadMesh_y7xal"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efgt5"]
+render_priority = 0
+shader = ExtResource("3_dgvtb")
+shader_parameter/outlineColor = Color(0, 0, 0, 1)
+shader_parameter/depth_threshold = 0.08
+shader_parameter/normal_threshold = 0.75
+shader_parameter/normal_smoothing = 0.02
+shader_parameter/max_thickness = 2.2
+shader_parameter/min_thickness = 0.8
+shader_parameter/max_distance = 150.0
+shader_parameter/min_distance = 40.0
+shader_parameter/grazing_fresnel_power = 5.0
+shader_parameter/grazing_angle_mask_power = 1.0
+shader_parameter/grazing_angle_modulation_factor = 50.0
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_sr7nm")
 
@@ -261,3 +281,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134864, 0)
 shape = SubResource("CapsuleShape3D_4vu74")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="OutlineCaster" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 1.08989, 2.05927, 0)
+layers = 2
+mesh = SubResource("QuadMesh_y7xal")
+surface_material_override/0 = SubResource("ShaderMaterial_efgt5")

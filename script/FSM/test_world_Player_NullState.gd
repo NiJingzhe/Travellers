@@ -7,7 +7,8 @@ func trans_check(new_state : State):
 		return false
 	
 func state_process(_delta):
-	print("Null")
+	#print("Null")
+	pass
 	
 func into_state(from : State):
 	if from.name == "WalkState":

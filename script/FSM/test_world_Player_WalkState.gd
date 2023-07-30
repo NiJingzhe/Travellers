@@ -14,8 +14,8 @@ func into_state(from : State):
 		pass
 
 func state_process(_delta):
-	print("Walking")
-
+	#print("Walking")
+	pass
 
 func outof_state(to : State):
 	if to.get_name() == "NullState":

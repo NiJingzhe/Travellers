@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bduvvhodnwhkv"
-path="res://.godot/imported/盘子.glb-bcda95c9eef16fed1060469355da92d2.scn"
+path="res://.godot/imported/盘子.glb-8fe0affa32f13a12bc57921b5ff32759.scn"
 
 [deps]
 
-source_file="res://model/normal_onj_in_home/plate/盘子.glb"
-dest_files=["res://.godot/imported/盘子.glb-bcda95c9eef16fed1060469355da92d2.scn"]
+source_file="res://model/normal_obj_in_home/plate/盘子.glb"
+dest_files=["res://.godot/imported/盘子.glb-8fe0affa32f13a12bc57921b5ff32759.scn"]
 
 [params]
 

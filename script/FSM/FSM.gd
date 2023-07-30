@@ -1,7 +1,6 @@
 extends Node
 class_name FSM
 
-
 # 状态机架构阐述：
 # FSM 作为 状态机的基类型，其子类为各个实体的状态机，如 PlayerFSM 就是 extends 自 FSM
 # FSM 有一个 CurrentState 变量，用于记录当前状态，其类型为 State
