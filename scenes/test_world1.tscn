@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=25 format=3 uid="uid://cdiplbxifi55n"]
 
 [ext_resource type="Script" path="res://script/DataSystem/test_world_DataBase.gd" id="1_ph2se"]
 [ext_resource type="Script" path="res://script/DataSystem/test_world_PlayerSheet.gd" id="2_wo1if"]

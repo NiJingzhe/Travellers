@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=24 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/player.tscn" id="1_cpdod"]
 [ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/sun_system.tscn" id="1_doesi"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" path="res://script/FSM/test_world_Player_WalkState.gd" id="7_ttkqe"]
 [ext_resource type="Script" path="res://script/DataSystem/test_world_DataBase.gd" id="8_48x2v"]
 [ext_resource type="Shader" uid="uid://k6erj4lpdfxr" path="res://shaders/pixelized/pixelized_method1.tres" id="13_dc21e"]
-[ext_resource type="Shader" path="res://shaders/post_process_outline/dep_norm_outline.gdshader" id="13_kc8tg"]
 [ext_resource type="Texture2D" uid="uid://12qyvg0nh4o8" path="res://icon.svg" id="14_dkalt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_44m1t"]
@@ -46,25 +45,6 @@ size = Vector3(2.2805, 2.28679, 2.67969)
 albedo_color = Color(0.85098, 0.47451, 0.603922, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wdg70"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_xpqar"]
-flip_faces = true
-size = Vector2(2, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_anv6y"]
-render_priority = 0
-shader = ExtResource("13_kc8tg")
-shader_parameter/outlineColor = Color(0, 0, 0, 1)
-shader_parameter/depth_threshold = 0.025
-shader_parameter/normal_threshold = 1.3
-shader_parameter/normal_smoothing = 0.25
-shader_parameter/max_thickness = 2.0
-shader_parameter/min_thickness = 0.8
-shader_parameter/max_distance = 40.0
-shader_parameter/min_distance = 0.1
-shader_parameter/grazing_fresnel_power = 5.0
-shader_parameter/grazing_angle_mask_power = 1.0
-shader_parameter/grazing_angle_modulation_factor = 50.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3topm"]
 shader = ExtResource("13_dc21e")
@@ -132,13 +112,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.646514, 0)
 material_override = SubResource("StandardMaterial3D_3yrj6")
 mesh = SubResource("PlaneMesh_wdg70")
 
-[node name="OutlineCaster" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 1.08989, 2.05927, 0)
-layers = 2
-mesh = SubResource("QuadMesh_xpqar")
-surface_material_override/0 = SubResource("ShaderMaterial_anv6y")
-
 [node name="PixelizedShader" type="Sprite2D" parent="."]
+visible = false
 z_index = -100
 material = SubResource("ShaderMaterial_3topm")
 position = Vector2(576, 323.5)
