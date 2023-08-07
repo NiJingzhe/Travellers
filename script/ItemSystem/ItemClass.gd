@@ -10,7 +10,7 @@ var item_description : String
 # 物品描述
 var item_image : String
 # 物品图片
-var basic_point : Array
+var origin_point : Array
 # 基准点的位置：二元组，相对于物品栏最左上角而言
 # 基准点定义为最上边界和最左边界交点对应右下物品栏块
 var rotate_mode : int
@@ -24,14 +24,6 @@ enum ROTATE_STATE {UP, RIGHT, DOWN, LEFT}
 #example shape
 # var ExampleShape0 : Array = [[0, 1], [0, 7], [1, 0], [1, 4], [1, 6], [2, 4], [2, 5], [3, 5], [4, 4]]
 # var ExampleShape1 : Array = [[0, 0], [0, 1], [1, 0], [1, 1]]
-
-##初始化函数
-func init_item():
-	self.item_name = "Nameless"
-	self.basic_point = [0, 0]
-	self.item_shape = []
-	self.rotate_mode = ROTATE_STATE.UP
-
 	
 #example func
 # func create_example() :
@@ -41,10 +33,10 @@ func init_item():
 # 	self.RotateMode = RotateState.UP
 	
 ##创建物品函数
-func create_item(Name_ : String, Image_ : String, BasicPoint_ : Array, Shape_ : Array, RotateMode_ : int) :
+func init_item(Name_ : String, Image_ : String, BasicPoint_ : Array, Shape_ : Array, RotateMode_ : int) :
 	self.item_name = Name_
 	self.item_image = Image_
-	self.basic_point = BasicPoint_
+	self.origin_point = BasicPoint_
 	self.item_shape = Shape_
 	self.rotate_mode = RotateMode_
 	

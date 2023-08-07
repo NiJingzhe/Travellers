@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://pxt12nmv5ddl"
+path="res://.godot/imported/fenceBroken.obj-43ce1ca0c9bd0c49c69f3110e60a1485.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fenceBroken.obj-43ce1ca0c9bd0c49c69f3110e60a1485.mesh"]
+
+source_file="res://assets/model/town_kit/fenceBroken.obj"
+dest_files=["res://.godot/imported/fenceBroken.obj-43ce1ca0c9bd0c49c69f3110e60a1485.mesh", "res://.godot/imported/fenceBroken.obj-43ce1ca0c9bd0c49c69f3110e60a1485.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dsemcb3o5rf6b"
+path="res://.godot/imported/wallRounded.obj-781fb02944a327fe3695d5387964432a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallRounded.obj-781fb02944a327fe3695d5387964432a.mesh"]
+
+source_file="res://assets/model/town_kit/wallRounded.obj"
+dest_files=["res://.godot/imported/wallRounded.obj-781fb02944a327fe3695d5387964432a.mesh", "res://.godot/imported/wallRounded.obj-781fb02944a327fe3695d5387964432a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

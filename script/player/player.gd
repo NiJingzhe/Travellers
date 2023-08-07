@@ -59,7 +59,6 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-
 	self.player_sheet.set_value("PlayerPosition", 0, {"x": self.position.x, "y": self.position.y, "z": self.position.z})
 
 

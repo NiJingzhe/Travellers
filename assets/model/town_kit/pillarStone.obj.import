@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cbo4davjjaosk"
+path="res://.godot/imported/pillarStone.obj-17f7bbcbc937d940c02c1eebb708577e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pillarStone.obj-17f7bbcbc937d940c02c1eebb708577e.mesh"]
+
+source_file="res://assets/model/town_kit/pillarStone.obj"
+dest_files=["res://.godot/imported/pillarStone.obj-17f7bbcbc937d940c02c1eebb708577e.mesh", "res://.godot/imported/pillarStone.obj-17f7bbcbc937d940c02c1eebb708577e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmk3n5dwai5d8"
+path="res://.godot/imported/roofCorner.obj-6fd80e0602c8b3b390824696edd22ff4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/roofCorner.obj-6fd80e0602c8b3b390824696edd22ff4.mesh"]
+
+source_file="res://assets/model/town_kit/roofCorner.obj"
+dest_files=["res://.godot/imported/roofCorner.obj-6fd80e0602c8b3b390824696edd22ff4.mesh", "res://.godot/imported/roofCorner.obj-6fd80e0602c8b3b390824696edd22ff4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

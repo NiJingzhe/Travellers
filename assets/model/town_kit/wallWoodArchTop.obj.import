@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://m8wdfr77qrrk"
+path="res://.godot/imported/wallWoodArchTop.obj-d48e91bb3b9c9d4b4e820a7a4688309d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallWoodArchTop.obj-d48e91bb3b9c9d4b4e820a7a4688309d.mesh"]
+
+source_file="res://assets/model/town_kit/wallWoodArchTop.obj"
+dest_files=["res://.godot/imported/wallWoodArchTop.obj-d48e91bb3b9c9d4b4e820a7a4688309d.mesh", "res://.godot/imported/wallWoodArchTop.obj-d48e91bb3b9c9d4b4e820a7a4688309d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ctbwtpiln3d4f"
+path="res://.godot/imported/wallCornerEdge.obj-085867b041caa85f51a6177cff492aaa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallCornerEdge.obj-085867b041caa85f51a6177cff492aaa.mesh"]
+
+source_file="res://assets/model/town_kit/wallCornerEdge.obj"
+dest_files=["res://.godot/imported/wallCornerEdge.obj-085867b041caa85f51a6177cff492aaa.mesh", "res://.godot/imported/wallCornerEdge.obj-085867b041caa85f51a6177cff492aaa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

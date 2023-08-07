@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b43vpgcjxkslq"
+path="res://.godot/imported/roofGable.obj-8e5e6af3c22a2ff0767b752aa2d3f513.mesh"
+
+[deps]
+
+files=["res://.godot/imported/roofGable.obj-8e5e6af3c22a2ff0767b752aa2d3f513.mesh"]
+
+source_file="res://assets/model/town_kit/roofGable.obj"
+dest_files=["res://.godot/imported/roofGable.obj-8e5e6af3c22a2ff0767b752aa2d3f513.mesh", "res://.godot/imported/roofGable.obj-8e5e6af3c22a2ff0767b752aa2d3f513.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

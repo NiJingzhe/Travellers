@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bmn417wkg6vbw"
+path="res://.godot/imported/stallBench.obj-7ed6e5e5535a1f3f08bcd412868b18ec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stallBench.obj-7ed6e5e5535a1f3f08bcd412868b18ec.mesh"]
+
+source_file="res://assets/model/town_kit/stallBench.obj"
+dest_files=["res://.godot/imported/stallBench.obj-7ed6e5e5535a1f3f08bcd412868b18ec.mesh", "res://.godot/imported/stallBench.obj-7ed6e5e5535a1f3f08bcd412868b18ec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

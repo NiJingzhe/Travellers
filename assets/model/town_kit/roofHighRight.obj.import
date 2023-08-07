@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxtomxnca2eb1"
+path="res://.godot/imported/roofHighRight.obj-3a2dcfe0e4e0ee9076f55ce7c72c487d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/roofHighRight.obj-3a2dcfe0e4e0ee9076f55ce7c72c487d.mesh"]
+
+source_file="res://assets/model/town_kit/roofHighRight.obj"
+dest_files=["res://.godot/imported/roofHighRight.obj-3a2dcfe0e4e0ee9076f55ce7c72c487d.mesh", "res://.godot/imported/roofHighRight.obj-3a2dcfe0e4e0ee9076f55ce7c72c487d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -4,16 +4,33 @@ class_name InteractableObject
 
 @export var detect_area : Area3D
 @export var detect_list : Array
-@export var hint_text : RichTextLabel
+@onready var event_bubble : Signal = Signal(self, "event_bubble")
+
+enum event_type {
+	PLAYER_IN,
+	PLAYER_OUT,
+	PLAYER_INTERACT,
+	SOMEONE_IN,
+	SOMEONE_OUT,
+	SOMEONE_INTERACT
+}
 
 const IN = 1
 const OUT = 0
 
-func init_interactable_object():
+func init_interactable_object(listener : Callable):
 	detect_area.monitoring = true
-	hint_text.visible = false
 	detect_area.connect("area_entered", self.enter_call_back, CONNECT_PERSIST)
 	detect_area.connect("area_exited", self.exit_call_back, CONNECT_PERSIST)
+	self.add_user_signal(
+		"event_bubble",
+		[
+			{"name" : "obj", "type" : InteractableObject},
+			{"name" : "event", "type" : TYPE_INT}
+		]
+	)
+	self.event_bubble.connect(listener)
+	
 func enter_call_back(area):
 	if area.name in self.detect_list:
 		self.detect_call_back(area, IN)
@@ -24,5 +41,6 @@ func exit_call_back(area):
 	
 func detect_call_back(_area:Area3D, _in_or_out:int):
 	pass
+
 	
 

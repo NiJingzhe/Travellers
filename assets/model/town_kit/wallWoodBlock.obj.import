@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bbqkex14qg8qn"
+path="res://.godot/imported/wallWoodBlock.obj-5e150825b7a4f294e599a408bf015ed3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallWoodBlock.obj-5e150825b7a4f294e599a408bf015ed3.mesh"]
+
+source_file="res://assets/model/town_kit/wallWoodBlock.obj"
+dest_files=["res://.godot/imported/wallWoodBlock.obj-5e150825b7a4f294e599a408bf015ed3.mesh", "res://.godot/imported/wallWoodBlock.obj-5e150825b7a4f294e599a408bf015ed3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

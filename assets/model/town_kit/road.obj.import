@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://birefx8fpge3b"
+path="res://.godot/imported/road.obj-65634d4937e8a7a165cbb18295b02b18.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road.obj-65634d4937e8a7a165cbb18295b02b18.mesh"]
+
+source_file="res://assets/model/town_kit/road.obj"
+dest_files=["res://.godot/imported/road.obj-65634d4937e8a7a165cbb18295b02b18.mesh", "res://.godot/imported/road.obj-65634d4937e8a7a165cbb18295b02b18.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

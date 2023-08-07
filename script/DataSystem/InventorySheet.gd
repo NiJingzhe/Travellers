@@ -3,6 +3,6 @@ extends DataSheet
 # 以后可以按需添加若干比如视觉属性等
 var SAVE_PATH : String = "res://save/inventory_sheet.json"
 func _ready():
-	self.init_sheet(["Capacity", "ItemList"])
+	self.init_sheet([''])
 	
 	

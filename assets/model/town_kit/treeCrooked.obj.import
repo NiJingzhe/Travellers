@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxlfmx5jdw06y"
+path="res://.godot/imported/treeCrooked.obj-1b1f34a73de2bc706623b793ee6e3a31.mesh"
+
+[deps]
+
+files=["res://.godot/imported/treeCrooked.obj-1b1f34a73de2bc706623b793ee6e3a31.mesh"]
+
+source_file="res://assets/model/town_kit/treeCrooked.obj"
+dest_files=["res://.godot/imported/treeCrooked.obj-1b1f34a73de2bc706623b793ee6e3a31.mesh", "res://.godot/imported/treeCrooked.obj-1b1f34a73de2bc706623b793ee6e3a31.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxafh0trbmjbc"
+path="res://.godot/imported/windmill.obj-4b1bb7c82e40b5e578ad447062f1b13f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/windmill.obj-4b1bb7c82e40b5e578ad447062f1b13f.mesh"]
+
+source_file="res://assets/model/town_kit/windmill.obj"
+dest_files=["res://.godot/imported/windmill.obj-4b1bb7c82e40b5e578ad447062f1b13f.mesh", "res://.godot/imported/windmill.obj-4b1bb7c82e40b5e578ad447062f1b13f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

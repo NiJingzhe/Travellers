@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb6qk4gr5h0ye"]
+
+[ext_resource type="PackedScene" uid="uid://quife74cqd6w" path="res://assets/model/map/test_room/testroom_complete.glb" id="1_dv7ad"]
+
+[node name="testroom_complete" instance=ExtResource("1_dv7ad")]
+
+[node name="平面_004" parent="." index="9"]
+transform = Transform3D(3.57983e-07, 0, -2.76484, 1.75019e-07, -2.00198, 4.32211e-14, -2.00198, -1.75019e-07, -4.94392e-07, 0.53168, 6.74804, -6.23913)
+
+[node name="柱体_003" parent="柱体_002" index="0"]
+transform = Transform3D(-0.0432415, -0.0124311, -0.0850357, -0.000695852, -11.4131, 0.000684984, 0.0679065, -0.124869, -0.0541421, 0, 7.62939e-06, 0)
+
+[node name="柱体_004" parent="柱体_002" index="1"]
+transform = Transform3D(0.118476, -0.132473, 9.92397e-09, -0.00137805, -11.3893, 2.19106e-09, -1.711e-08, 3.83266e-07, 0.0685408, 0.433938, 7.62939e-06, -0.182693)
+
+[node name="柱体_005" parent="柱体_002" index="2"]
+transform = Transform3D(-0.0989534, 0.194158, 0.0424278, -0.00342403, -11.3671, -0.000575373, -0.0748103, 0.263449, -0.056094, -0.57132, -0.794647, -0.436186)
+
+[node name="平面_005" parent="." index="14"]
+transform = Transform3D(0.99444, 0, 0, 0, 1.7815, 0, 0, 0, 1.7815, -4.14901, 2.82202, -2.43822)
+
+[node name="立方体_008" parent="平面_005" index="1"]
+transform = Transform3D(0.867023, 0, 0, 0, -0.0220824, 0, 0, 0, 0.928317, 0.00566912, -0.0595533, 0.00288987)
+
+[node name="平面_006" parent="." index="19"]
+transform = Transform3D(0.539653, 0, 0, 0, 1.5462, 0, 0, 0, 0.822383, -3.86878, 2.77087, -1.88003)

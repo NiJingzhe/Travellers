@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bprneya7g3naw"
+path="res://.godot/imported/wallDetailHorizontal.obj-a20fbcd0b448d89cd93f76dd0858c65e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallDetailHorizontal.obj-a20fbcd0b448d89cd93f76dd0858c65e.mesh"]
+
+source_file="res://assets/model/town_kit/wallDetailHorizontal.obj"
+dest_files=["res://.godot/imported/wallDetailHorizontal.obj-a20fbcd0b448d89cd93f76dd0858c65e.mesh", "res://.godot/imported/wallDetailHorizontal.obj-a20fbcd0b448d89cd93f76dd0858c65e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

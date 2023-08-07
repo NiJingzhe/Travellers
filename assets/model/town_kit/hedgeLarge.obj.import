@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b1p0nefkakst7"
+path="res://.godot/imported/hedgeLarge.obj-b8ef859b9b0140fce776d33ea1af0bbb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hedgeLarge.obj-b8ef859b9b0140fce776d33ea1af0bbb.mesh"]
+
+source_file="res://assets/model/town_kit/hedgeLarge.obj"
+dest_files=["res://.godot/imported/hedgeLarge.obj-b8ef859b9b0140fce776d33ea1af0bbb.mesh", "res://.godot/imported/hedgeLarge.obj-b8ef859b9b0140fce776d33ea1af0bbb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

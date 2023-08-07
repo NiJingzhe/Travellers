@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://4v5xnfdmjp5a"
+path="res://.godot/imported/roofFlat.obj-64b5c19e5e52ca1047421f2f0d0eb0de.mesh"
+
+[deps]
+
+files=["res://.godot/imported/roofFlat.obj-64b5c19e5e52ca1047421f2f0d0eb0de.mesh"]
+
+source_file="res://assets/model/town_kit/roofFlat.obj"
+dest_files=["res://.godot/imported/roofFlat.obj-64b5c19e5e52ca1047421f2f0d0eb0de.mesh", "res://.godot/imported/roofFlat.obj-64b5c19e5e52ca1047421f2f0d0eb0de.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

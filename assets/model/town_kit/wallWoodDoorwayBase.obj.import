@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://xsb3rkkjk50y"
+path="res://.godot/imported/wallWoodDoorwayBase.obj-3e0fd4b3fc7626f0aea8ec6f08372e0a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallWoodDoorwayBase.obj-3e0fd4b3fc7626f0aea8ec6f08372e0a.mesh"]
+
+source_file="res://assets/model/town_kit/wallWoodDoorwayBase.obj"
+dest_files=["res://.godot/imported/wallWoodDoorwayBase.obj-3e0fd4b3fc7626f0aea8ec6f08372e0a.mesh", "res://.godot/imported/wallWoodDoorwayBase.obj-3e0fd4b3fc7626f0aea8ec6f08372e0a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

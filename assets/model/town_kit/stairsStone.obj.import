@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b37qjbd5u0rcj"
+path="res://.godot/imported/stairsStone.obj-e05047a253a9621f3f2905ce8e0d5b29.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stairsStone.obj-e05047a253a9621f3f2905ce8e0d5b29.mesh"]
+
+source_file="res://assets/model/town_kit/stairsStone.obj"
+dest_files=["res://.godot/imported/stairsStone.obj-e05047a253a9621f3f2905ce8e0d5b29.mesh", "res://.godot/imported/stairsStone.obj-e05047a253a9621f3f2905ce8e0d5b29.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

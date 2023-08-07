@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cngvrn368jd2o"
+path="res://.godot/imported/fountainCornerInnerSquare.obj-627c0f9d70303857a3e967c471de4fb7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fountainCornerInnerSquare.obj-627c0f9d70303857a3e967c471de4fb7.mesh"]
+
+source_file="res://assets/model/town_kit/fountainCornerInnerSquare.obj"
+dest_files=["res://.godot/imported/fountainCornerInnerSquare.obj-627c0f9d70303857a3e967c471de4fb7.mesh", "res://.godot/imported/fountainCornerInnerSquare.obj-627c0f9d70303857a3e967c471de4fb7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

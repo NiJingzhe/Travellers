@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cea80jhjift32"
+path="res://.godot/imported/treeHighRound.obj-95d5c8803e4e18f95eef93ce0998ed6e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/treeHighRound.obj-95d5c8803e4e18f95eef93ce0998ed6e.mesh"]
+
+source_file="res://assets/model/town_kit/treeHighRound.obj"
+dest_files=["res://.godot/imported/treeHighRound.obj-95d5c8803e4e18f95eef93ce0998ed6e.mesh", "res://.godot/imported/treeHighRound.obj-95d5c8803e4e18f95eef93ce0998ed6e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
