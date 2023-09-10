@@ -21,7 +21,7 @@ func count_log() -> int:
 func add_log(new_log : Dictionary) -> bool:
 	for log_segment in new_log.keys():
 		if log_segment not in self.data_sheet.keys():
-			print("DataSystem WARNING：添加记录时记录字段必须和现有表字段相同！")
+			push_warning("DataSystem WARNING：添加记录时记录字段必须和现有表字段相同！")
 			return false
 		else:
 			data_sheet[log_segment].append(new_log[log_segment])
@@ -31,12 +31,12 @@ func add_log(new_log : Dictionary) -> bool:
 ##删除记录,此时应当传入一个整数,用于删除指定索引的记录
 func del_log(index : int) -> bool:
 	if index >= self.count_log():
-		print("DataSystem WARNING：你正在尝试删除不存在的记录！")
+		push_warning("DataSystem WARNING：你正在尝试删除不存在的记录！")
 		return false
 	for data_segment in self.data_sheet.keys():
 		var segment_list : Array = data_sheet[data_segment] as Array
 		segment_list.remove_at(index) 
-	
+		data_sheet[data_segment] = segment_list
 	return true
 
 ##查询记录,此时应当传入一个字段和该字段用于查找的key,用于查找指定索引的记录,找到返回该记录的字典形式,否则返回空字典
@@ -54,7 +54,7 @@ func query_log(data_segment:String, key) -> Dictionary:
 ##直接通过下标取得记录
 func get_log(index : int) -> Dictionary:
 	if index >= self.count_log():
-		print("DataSystem WARNING：你正在尝试访问不存在的记录！")
+		push_warning("DataSystem WARNING：你正在尝试访问不存在的记录！")
 		return {}
 	var result_dict : Dictionary = {}
 	for segment in self.data_sheet.keys():
@@ -68,7 +68,7 @@ func set_value(segment_name : String, index : int, value) -> bool:
 		self.data_sheet[segment_name][index] = value
 		return true
 	else:
-		print("DataSystem WARNING : 你正在给一个不存在的单元写入值 !")
+		push_warning("DataSystem WARNING : 你正在给一个不存在的单元写入值 !")
 		return false
 
 ##取一个单元的值
@@ -76,7 +76,7 @@ func get_value(segment_name : String, index : int):
 	if segment_name in self.data_sheet.keys() and index < self.count_log():
 		return self.data_sheet[segment_name][index]
 	else:
-		print("DataSystem WARNING : 你正在访问一个不存在的单元 !")
+		push_warning("DataSystem WARNING : 你正在访问一个不存在的单元 !")
 		return null
 
 ##取得所有字段名称,返回一个字符串列表
@@ -86,7 +86,7 @@ func get_all_segment_name() -> Array:
 ##添加一个新的字段,所有记录新字段的值都设置为null
 func add_segment(segment_name : String) -> bool:
 	if segment_name in self.data_sheet.keys():
-		print("DataSystem WARNING：你正在尝试添加已存在的字段！")
+		push_warning("DataSystem WARNING：你正在尝试添加已存在的字段！")
 		return false
 	else:
 		var new_segment_array : Array = []
@@ -98,7 +98,7 @@ func add_segment(segment_name : String) -> bool:
 ##删除一个字段,所有记录中该字段的值都会被删除
 func del_segment(segment_name : String) -> bool:
 	if segment_name not in self.data_sheet.keys():
-		print("DataSystem WARNING：你正在尝试删除不存在的字段！")
+		push_warning("DataSystem WARNING：你正在尝试删除不存在的字段！")
 		return false
 	else:
 		self.data_sheet.erase(segment_name)
@@ -113,7 +113,7 @@ func save_sheet(save_path : String):
 ##加载一张表
 func load_sheet(load_path : String):
 	if FileAccess.file_exists(load_path) == false:
-		print("DataSystem WARNING：你正在尝试从磁盘加载一个不存在的数据表！")
+		push_warning("DataSystem WARNING：你正在尝试从磁盘加载一个不存在的数据表！")
 		return
 	var load_file = FileAccess.open(load_path, FileAccess.READ)
 	self.data_sheet.merge((JSON.parse_string(load_file.get_as_text()) as Dictionary), true)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4t1wl60lymmo"]
+[gd_scene load_steps=10 format=3 uid="uid://b4t1wl60lymmo"]
 
 [ext_resource type="PackedScene" uid="uid://ca6qa4ddpa1p6" path="res://assets/model/box/box.glb" id="1_6j6wn"]
-[ext_resource type="Script" path="res://script/InteractableObject/InteractableBox.gd" id="2_sc0ea"]
 [ext_resource type="Material" uid="uid://dr3rpgr0m6dnd" path="res://assets/model/box/test_box.tres" id="3_mr15r"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_54ja2"]
@@ -175,7 +174,6 @@ _data = {
 size = Vector3(6.45799, 8.8154, 6.28256)
 
 [node name="box" instance=ExtResource("1_6j6wn")]
-script = ExtResource("2_sc0ea")
 
 [node name="箱底" parent="." index="0"]
 material_override = ExtResource("3_mr15r")

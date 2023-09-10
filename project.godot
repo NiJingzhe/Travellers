@@ -62,6 +62,7 @@ open_bag={
 
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality.mobile=2
+occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=3
 lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=4
 lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=5

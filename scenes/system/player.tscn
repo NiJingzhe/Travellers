@@ -1,8 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://6uqhlg6628o8"]
+[gd_scene load_steps=33 format=3 uid="uid://6uqhlg6628o8"]
 
 [ext_resource type="Script" path="res://script/player/player.gd" id="1_sr7nm"]
 [ext_resource type="Texture2D" uid="uid://bpbu02blyg7em" path="res://assets/texture/role/model_character.png" id="2_2kfbo"]
 [ext_resource type="Shader" path="res://assets/shaders/post_process_outline/dep_norm_outline.gdshader" id="3_oaomb"]
+[ext_resource type="Script" path="res://script/player/PlayerFSM.gd" id="4_5pgpc"]
+[ext_resource type="Script" path="res://script/player/NormalState.gd" id="5_kw5ey"]
+[ext_resource type="Script" path="res://script/player/ClimbState.gd" id="6_gdmk5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wsmg6"]
 animation = &"left_idle"
@@ -70,40 +73,6 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_6vl3h")
 states/Walk/position = Vector2(722, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_2pi6w"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_fpdnc"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_xd2tm")]
 
-[sub_resource type="Animation" id="Animation_kl30a"]
-resource_name = "down_idle"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-
-[sub_resource type="Animation" id="Animation_r71fa"]
-resource_name = "down_waalk"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 4, 5]
-}
-
 [sub_resource type="Animation" id="Animation_c2yro"]
 resource_name = "left_idle"
 length = 0.1
@@ -135,39 +104,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [2, 3, 0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_wnqhf"]
-resource_name = "right_idle"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-
-[sub_resource type="Animation" id="Animation_v7i2w"]
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [11, 8, 9, 10]
 }
 
 [sub_resource type="Animation" id="Animation_8a56m"]
@@ -204,16 +140,83 @@ tracks/0/keys = {
 "values": [15, 12, 13, 14]
 }
 
+[sub_resource type="Animation" id="Animation_kl30a"]
+resource_name = "down_idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_r71fa"]
+resource_name = "down_waalk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_wnqhf"]
+resource_name = "right_idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_v7i2w"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 8, 9, 10]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xnpjr"]
 _data = {
-"down_idle": SubResource("Animation_kl30a"),
-"down_walk": SubResource("Animation_r71fa"),
-"left_idle": SubResource("Animation_c2yro"),
-"left_walk": SubResource("Animation_ofpbh"),
-"right_idle": SubResource("Animation_wnqhf"),
-"right_walk": SubResource("Animation_v7i2w"),
-"up_idle": SubResource("Animation_8a56m"),
-"up_walk": SubResource("Animation_4jxwb")
+"down_idle": SubResource("Animation_c2yro"),
+"down_walk": SubResource("Animation_ofpbh"),
+"left_idle": SubResource("Animation_8a56m"),
+"left_walk": SubResource("Animation_4jxwb"),
+"right_idle": SubResource("Animation_kl30a"),
+"right_walk": SubResource("Animation_r71fa"),
+"up_idle": SubResource("Animation_wnqhf"),
+"up_walk": SubResource("Animation_v7i2w")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4vu74"]
@@ -231,7 +234,7 @@ shader_parameter/outlineColor = Color(0, 0, 0, 1)
 shader_parameter/depth_threshold = 0.08
 shader_parameter/normal_threshold = 0.75
 shader_parameter/normal_smoothing = 0.02
-shader_parameter/max_thickness = 2.2
+shader_parameter/max_thickness = 1.6
 shader_parameter/min_thickness = 0.8
 shader_parameter/max_distance = 150.0
 shader_parameter/min_distance = 40.0
@@ -262,7 +265,7 @@ shaded = true
 texture = ExtResource("2_2kfbo")
 hframes = 4
 vframes = 6
-frame = 6
+frame = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134864, 0)
@@ -289,3 +292,14 @@ transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.7071
 layers = 2
 mesh = SubResource("QuadMesh_y7xal")
 surface_material_override/0 = SubResource("ShaderMaterial_efgt5")
+
+[node name="PlayerFSM" type="Node" parent="."]
+script = ExtResource("4_5pgpc")
+
+[node name="NormalState" type="Node" parent="PlayerFSM"]
+unique_name_in_owner = true
+script = ExtResource("5_kw5ey")
+
+[node name="ClimbState" type="Node" parent="PlayerFSM"]
+unique_name_in_owner = true
+script = ExtResource("6_gdmk5")

@@ -21,7 +21,7 @@ class_name SunSystem
 @export var daytime_color : Color = Color(1, 1, 1, 1)
 @export var dusktime_color : Color = Color(0,0,0,1)
 @export var nighttime_color : Color = Color(0.2, 0.2, 0.5, 1)
-@export var time_of_whole_day : float
+@export var time_of_whole_day : float = 120
 @export var DAWN_START : float = 3.5
 @export var DAY_START : float = 6.5
 @export var DUSK_START : float = 16.5
@@ -38,7 +38,9 @@ func _ready():
 	angle_curve.bake()
 	shadow_blur_curve.bake()
 	shadow_transparency_curve.bake()
-	time_sheet.add_segment("ScaleFactor")
+	if not "ScaleFactor" in time_sheet.get_all_segment_name():
+		time_sheet.add_segment("ScaleFactor")
+	
 	time_sheet.set_value("ScaleFactor", 0, self.scale_factor)
 	
 func scale_game_time(scale_fact:float) -> void:

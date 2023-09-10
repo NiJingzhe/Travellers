@@ -14,7 +14,7 @@ class_name FSM
 # state_process(delta : float) 用于处理状态的逻辑，delta 代表时间间隔
 
 # FSM 运作逻辑
-# FSM 再进入场景树后，会尝试将自己的第一个子节点作为初始状态。
+# FSM 进入场景树后，会尝试将自己的第一个子节点作为初始状态。
 # 开发者在 某个实体的FSM 的_ready函数中通过add_relation添加状态转移关系
 # FSM 运行时会循环检查与当前状态有通路连接的所有状态，如果通路上的检测函数返回true，则进行状态转移
 # 状态转移过程分为：退出当前状态，进入新状态，开始运行新状态处理函数
@@ -56,20 +56,21 @@ func travel_to(state : State, force : bool = false):
 					(state as State).into_state(self.CurrentState)
 					self.CurrentState = state
 				else:
-					print("can't travel to " + state.get_name())
+					push_warning("can't travel to " + state.get_name() + " " + state.name+ ".trans_check() returned false")
 			else:
-				print("can't travel to " + state.get_name())
+				push_error("can't travel to " + state.get_name() + ",there is no nextState named " + state.name)
 		else:
-			print("can't travel to " + state.get_name())
+			push_error("can't travel to " + state.get_name() + ",there is no currentState named " + self.CurrentState.name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	# 根据目前状态来遍历检测函数，如果符合条件则进行状态转移
 	for NextState in Testdict[CurrentState].keys():
 		var tes : Callable = Testdict[CurrentState][NextState]
 		if tes.call(NextState):
 			self.CurrentState.outof_state(NextState)
 			(NextState as State).into_state(self.CurrentState)
-
+			self.CurrentState = NextState as State
+			
 	self.CurrentState.state_process(delta)
 	

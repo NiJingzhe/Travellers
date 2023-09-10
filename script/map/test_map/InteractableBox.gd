@@ -4,6 +4,7 @@ extends InteractableObject
 @onready var light : OmniLight3D = $Light
 @onready var player_in : bool  = false
 @onready var map : Map = self.get_parent() as Map
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.detect_area = $Area3D
@@ -14,22 +15,25 @@ func _ready():
 func _process(_delta):
 	if player_in:
 		if Input.is_action_just_pressed("map_element_interact"):
-			self.event_bubble.emit(self, self.event_type.PLAYER_INTERACT)
+			self.event_bubble.emit(self, self.event_type.PLAYER_INTERACT, self.inside_area)
 			animation_player.play("open")
 	if animation_player.current_animation != "":
 		light.light_energy = pow(animation_player.current_animation_position, 10) * 4
 
 func detect_call_back(area, in_or_out):
 	if in_or_out == IN:
+		self.inside_area = area
 		if area.name == "PlayerArea":
 			player_in = true
-			self.event_bubble.emit(self, self.event_type.PLAYER_IN)
+			self.event_bubble.emit(self, self.event_type.PLAYER_IN, self.inside_area)
 			
 	if in_or_out == OUT:
 		var current_animation_pos = animation_player.current_animation_position
 		if area.name == "PlayerArea":
 			player_in = false
-			self.event_bubble.emit(self, self.event_type.PLAYER_OUT)
+			self.event_bubble.emit(self, self.event_type.PLAYER_OUT, self.inside_area)
 			if current_animation_pos == 1.0:
 				animation_player.play_backwards("open")
+		
+		self.inside_area = null
 
