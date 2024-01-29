@@ -1,0 +1,199 @@
+{
+	"file_name": "test_chapter.json",
+	"head_list": [
+		1,
+		4
+	],
+	"plots": [
+		{
+			"action": [
+				"disable_move"
+			],
+			"content": {
+				"text": "欢迎来到测试章节"
+			},
+			"id": 1,
+			"next": [
+				2
+			],
+			"require_off": [],
+			"require_on": [],
+			"choices": [],
+			"type": "narration"
+		},
+		{
+			"action": [],
+			"content": {
+				"text": "该章节剧情文本用于测试剧情系统的各项功能，现在是旁白类型文本测试"
+			},
+			"id": 2,
+			"next": [
+				3
+			],
+			"require_off": [],
+			"require_on": [
+				"f_pressed"
+			],
+			"choices": [],
+			"type": "narration"
+		},
+		{
+			"action": [
+				"enable_move"
+			],
+			"content": {
+				"text": "旁白文本测试结束"
+			},
+			"id": 3,
+			"next": [
+				-1
+			],
+			"require_off": [],
+			"require_on": [
+				"f_pressed"
+			],
+			"choices": [],
+			"type": "narration"
+		},
+		{
+			"action": [
+				"disable_move"
+			],
+			"content": {
+				"avatar": "player_avatar",
+				"text": "我发现了一个箱子诶！打开看看！"
+			},
+			"id": 4,
+			"next": [
+				5
+			],
+			"require_off": [],
+			"require_on": [
+				"close_to_box",
+				"f_pressed"
+			],
+			"choices": [],
+			"type": "monologue"
+		},
+		{
+			"action": [
+				"enable_move"
+			],
+			"content": {
+				"text": "你发现箱子里散发出金色的光芒，似乎是...什么也没有，只是游戏作者在里面放了一个光源而已......"
+			},
+			"id": 5,
+			"next": [
+				-4
+			],
+			"require_off": [],
+			"require_on": [
+				"close_to_box",
+				"f_pressed"
+			],
+			"choices": [],
+			"type": "narration"
+		},
+		{
+			"action": [],
+			"content": {
+				"text": "请做一个选择"
+			},
+			"id": 6,
+			"next": [],
+			"require_off": [],
+			"require_on": [
+				"f_pressed"
+			],
+			"choices": [
+				{
+					"content": "选择1",
+					"next": [
+						7
+					]
+				},
+				{
+					"content": "选择2",
+					"next": [
+						8
+					]
+				},
+				{
+					"content": "选择3",
+					"next": [
+						9
+					]
+				},
+				{
+					"content": "选择4",
+					"next": [
+						10
+					]
+				}
+			],
+			"type": "narration"
+		},
+		{
+			"action": [],
+			"content": {
+				"text": "选择1"
+			},
+			"id": 7,
+			"next": [
+				-6
+			],
+			"require_off": [],
+			"require_on": [
+				""
+			],
+			"choices": [],
+			"type": "narration"
+		},
+		{
+			"action": [],
+			"content": {
+				"text": "选择2"
+			},
+			"id": 8,
+			"next": [
+				-6
+			],
+			"require_off": [],
+			"require_on": [],
+			"choices": [],
+			"type": "narration"
+		},
+		{
+			"action": [],
+			"content": {
+				"text": "选择3"
+			},
+			"id": 9,
+			"next": [
+				-6
+			],
+			"require_off": [],
+			"require_on": [],
+			"choices": [],
+			"type": "narration"
+		},
+		{
+			"action": [],
+			"content": {
+				"text": "选择4"
+			},
+			"id": 10,
+			"next": [
+				-6
+			],
+			"require_off": [],
+			"require_on": [],
+			"choices": [],
+			"type": "narration"
+		}
+	],
+	"require_off": [],
+	"require_on": [
+		"test_chapter"
+	]
+}

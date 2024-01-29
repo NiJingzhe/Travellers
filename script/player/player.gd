@@ -11,6 +11,8 @@ const JUMP_VELOCITY = 5.0
 @onready var data_base : DataSheet = self.get_node("../DataBase") as DataSheet
 @onready var player_sheet : DataSheet = self.get_node(data_base.query_log("sheet_name", "PlayerSheet")["sheet_path"]) as DataSheet
 
+@onready var player_cam : Camera3D = self.get_node("Camera3D") as Camera3D
+
 @onready var player_FSM : FSM = $PlayerFSM as FSM
 @onready var climb_mode : bool = false
 @onready var direction : Vector3 = Vector3.ZERO

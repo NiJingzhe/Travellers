@@ -27,7 +27,7 @@ func init_interactable_object(listener : Callable):
 		"event_bubble",
 		[
 			{"name" : "obj", "type" : InteractableObject},
-			{"name" : "event", "type" : TYPE_INT},
+			{"name" : "event", "type" : event_type},
 			{"name" : "area", "type": Area3D}
 		]
 	)

@@ -62,9 +62,11 @@ func travel_to(state : State, force : bool = false):
 		else:
 			push_error("can't travel to " + state.get_name() + ",there is no currentState named " + self.CurrentState.name)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _process(delta):
 	# 根据目前状态来遍历检测函数，如果符合条件则进行状态转移
+	if not CurrentState in Testdict.keys():
+		return
+		
 	for NextState in Testdict[CurrentState].keys():
 		var tes : Callable = Testdict[CurrentState][NextState]
 		if tes.call(NextState):

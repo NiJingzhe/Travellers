@@ -7,6 +7,7 @@ func _ready():
 	self.detect_area = $Area3D
 	self.detect_list.append("PlayerArea")
 	self.init_interactable_object(map.interactable_obj_event_listener)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
