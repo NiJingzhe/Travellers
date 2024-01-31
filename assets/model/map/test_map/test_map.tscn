@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://doeosqkm7i4vl"]
+[gd_scene load_steps=43 format=3 uid="uid://doeosqkm7i4vl"]
 
 [ext_resource type="PackedScene" uid="uid://b4t1wl60lymmo" path="res://assets/model/box/test_box.tscn" id="2_48svp"]
 [ext_resource type="Script" path="res://script/map/test_map/InteractableBox.gd" id="3_7q8xr"]
 [ext_resource type="Script" path="res://script/map/test_map/Interactable_ladder1.gd" id="3_entt5"]
+[ext_resource type="Script" path="res://script/map/test_map/Interactable_choice_area.gd" id="4_dl0mk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofm5d"]
 albedo_color = Color(0.584314, 0.458824, 0.388235, 1)
@@ -274,6 +275,16 @@ data = PackedVector3Array(-3.4413, -0.1516, -0.4244, -3.4413, 0.1516, -0.8488, -
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffeui"]
 size = Vector3(1.432, 7.131, 0.421)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8cim"]
+albedo_color = Color(1, 0.0784314, 0.415686, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_covgb"]
+material = SubResource("StandardMaterial3D_v8cim")
+flip_faces = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_do06c"]
+size = Vector3(1.33848, 3.74116, 1.27461)
+
 [node name="test_map" type="Node3D"]
 
 [node name="Cube" type="MeshInstance3D" parent="."]
@@ -391,3 +402,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0330725, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ladder_2/Area3D"]
 shape = SubResource("BoxShape3D_ffeui")
+
+[node name="ChoiceArea" type="Node3D" parent="."]
+script = ExtResource("4_dl0mk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChoiceArea"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.66038, 1.00351, -7.28499)
+mesh = SubResource("QuadMesh_covgb")
+
+[node name="Area3D" type="Area3D" parent="ChoiceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49654, -0.313667, -7.2778)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChoiceArea/Area3D"]
+shape = SubResource("BoxShape3D_do06c")

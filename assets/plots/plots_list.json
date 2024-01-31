@@ -1,5 +1,6 @@
 {
+	"discription" : "该文件是一个配置文件，当新的剧情文件出现时，需要将其文件名列在这里",
 	"plots_list" : [
-		"test_chapter.json" 
+		"test_chapter.json"
 	]
 }

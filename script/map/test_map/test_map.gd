@@ -7,7 +7,7 @@ func _ready():
 		switch_system.SWITCH_TYPE.TOGGLE,
 		switch_system.SWITCH_STATE.ON
 	)
-	
+
 	self.switch_system.set_switch(
 		"f_pressed",
 		switch_system.SWITCH_TYPE.ONE_SHOT,
@@ -15,7 +15,7 @@ func _ready():
 	)
 
 func _process(_delta):
-	
+
 	if Input.is_action_just_pressed("map_element_interact"):
 		self.switch_system.set_switch(
 			"f_pressed",
@@ -47,7 +47,7 @@ func interactable_obj_event_listener(obj : InteractableObject, event : int, area
 				switch_system.SWITCH_TYPE.TOGGLE,
 				switch_system.SWITCH_STATE.OFF
 			)
-			
+
 	if obj.name.contains("ladder"):
 		if event == obj.event_type.PLAYER_IN:
 			ui.show_element(ui.element_type.HINT_TEXT, {"text": "按F进入攀爬"})
@@ -59,3 +59,18 @@ func interactable_obj_event_listener(obj : InteractableObject, event : int, area
 			else:
 				var player = area.get_parent() as Player
 				player.climb_mode = true
+
+	if obj.name.contains("Choice"):
+		if event == obj.event_type.PLAYER_IN:
+			switch_system.set_switch(
+				"enter_choice_area",
+				switch_system.SWITCH_TYPE.TOGGLE,
+				switch_system.SWITCH_STATE.ON
+			)
+		elif event == obj.event_type.PLAYER_OUT:
+			print("out of choice area")
+			switch_system.set_switch(
+				"enter_choice_area",
+				switch_system.SWITCH_TYPE.TOGGLE,
+				switch_system.SWITCH_STATE.OFF
+			)

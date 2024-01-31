@@ -29,7 +29,7 @@ func add_to_Testdict(state1 : State, state2 : State, fun : Callable):
 		var tmp = Testdict[state1].duplicate()
 		tmp[state2] = fun
 		Testdict[state1] = tmp
-	else: 
+	else:
 		var tmp = {state2 : fun}
 		Testdict[state1] = tmp
 
@@ -41,7 +41,7 @@ func add_relation(from : State, to : State):
 # 初始化状态机，将第一个状态作为初始状态
 func init_FSM():
 	self.CurrentState = self.get_children()[0]
-	
+
 func travel_to(state : State, force : bool = false):
 	if force:
 		self.CurrentState.outof_state(state)
@@ -64,15 +64,17 @@ func travel_to(state : State, force : bool = false):
 
 func _process(delta):
 	# 根据目前状态来遍历检测函数，如果符合条件则进行状态转移
-	if not CurrentState in Testdict.keys():
+	if not self.CurrentState in Testdict.keys():
+		self.CurrentState.state_process(delta)
 		return
-		
-	for NextState in Testdict[CurrentState].keys():
-		var tes : Callable = Testdict[CurrentState][NextState]
+
+	for NextState in Testdict[self.CurrentState].keys():
+		var tes : Callable = Testdict[self.CurrentState][NextState]
 		if tes.call(NextState):
 			self.CurrentState.outof_state(NextState)
 			(NextState as State).into_state(self.CurrentState)
 			self.CurrentState = NextState as State
-			
+			break
+
 	self.CurrentState.state_process(delta)
-	
+

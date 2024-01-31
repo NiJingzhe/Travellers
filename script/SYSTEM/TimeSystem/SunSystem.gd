@@ -13,7 +13,7 @@ class_name SunSystem
 @export var energy_factor : float = 1.0
 @export var angle_curve : Curve      #整体向左侧平移了0.25个循环
 @export var shadow_blur_curve : Curve
-@export var shadow_blur_factor : float = 1.0 
+@export var shadow_blur_factor : float = 1.0
 @export var shadow_transparency_curve : Curve
 @export var shadow_transparency_factor : float = 1.0
 @export var dawntime_color : Color = Color(0,0,0,1)
@@ -39,9 +39,9 @@ func _ready():
 	shadow_transparency_curve.bake()
 	if not "ScaleFactor" in time_sheet.get_all_segment_name():
 		time_sheet.add_segment("ScaleFactor")
-	
+
 	time_sheet.set_value("ScaleFactor", 0, self.scale_factor)
-	
+
 func scale_game_time(scale_fact:float) -> void:
 	self.scale_factor = scale_fact
 	self.time_sheet.set_value("ScaleFactor", 0, scale_factor)
@@ -54,7 +54,7 @@ func _on_timer_timeout():
 		game_time -= 1
 	if Input.is_key_pressed(KEY_F6):
 		game_time += 1
-	
+
 	################################################################
 	game_time += (24 / time_of_whole_day / 10.0 / 2) * self.scale_factor
 	if game_time >= 24:

@@ -26,6 +26,11 @@ func _ready():
 	animation_player.speed_scale = 5
 	if "PlayerPosition" not in self.player_sheet.get_all_segment_name():
 		self.player_sheet.add_segment("PlayerPosition")
+		self.player_sheet.set_value("PlayerPosition", 0, {
+			"x" : self.position.x,
+			"y" : self.position.y,
+			"z" : self.position.z
+		})
 	else:
 		self.position.x = self.player_sheet.get_value("PlayerPosition", 0)["x"]
 		self.position.y = self.player_sheet.get_value("PlayerPosition", 0)["y"]

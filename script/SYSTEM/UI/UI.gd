@@ -19,15 +19,15 @@ func _process(_delta):
 	pass
 
 func show_element(elmt_type : int, param : Dictionary):
-	
+
 	if elmt_type == element_type.DIALOUG:
-		dialoug.show_dialoug(param["text"], param["image"], param["choices"])
-	
+		dialoug.show_dialoug(param["text"], param["image"], param["choices"], param["chosen_call_back"])
+
 	elif elmt_type == element_type.HINT_TEXT:
 		hint_text.show_hint(param["text"])
 
 func hide_element(elmt_type : int):
-	
+
 	if elmt_type == element_type.DIALOUG:
 		dialoug.hide_dialoug()
 	elif elmt_type == element_type.HINT_TEXT:

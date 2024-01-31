@@ -87,9 +87,6 @@ size = Vector2(2, 2)
 
 [node name="MainWorld" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cwefi")
-
 [node name="DataBase" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_hno5f")
@@ -114,9 +111,8 @@ script = ExtResource("5_losx0")
 unique_name_in_owner = true
 script = ExtResource("4_stu5o")
 
-[node name="PlotSystem" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("6_udkse")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cwefi")
 
 [node name="UI" type="Control" parent="."]
 unique_name_in_owner = true
@@ -127,15 +123,13 @@ offset_bottom = 40.0
 script = ExtResource("15_8hg25")
 
 [node name="Dialoug" parent="UI" instance=ExtResource("14_ftsfm")]
-visible = false
 layout_mode = 1
-offset_left = 264.5
-offset_top = 373.0
-offset_right = 224.5
-offset_bottom = 333.0
+offset_left = 19.0
+offset_top = 379.0
+offset_right = -21.0
+offset_bottom = 339.0
 
 [node name="HintText" type="Label" parent="UI"]
-visible = false
 layout_mode = 0
 offset_left = 620.0
 offset_top = 291.0
@@ -171,6 +165,10 @@ transform = Transform3D(0.375624, 0.896592, 0.234582, -0.538162, 0.00494635, 0.8
 
 [node name="Player" parent="." instance=ExtResource("1_cpdod")]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.07111, 1.9074, 0.883036)
+
+[node name="PlotSystem" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_udkse")
 
 [node name="PixelizedShader" type="Sprite2D" parent="."]
 visible = false

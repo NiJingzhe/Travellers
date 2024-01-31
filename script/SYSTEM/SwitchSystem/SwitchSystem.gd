@@ -28,18 +28,19 @@ func _ready():
 		]
 	)
 
+	switch_sheet.load_sheet(switch_sheet.SAVE_PATH)
 	#var plot_system : PlotSystem = %PlotSystem as PlotSystem
 	#self.switch_changed_signal.connect(plot_system.check_plot_update)
 
 
 ##定义开关，若开关不存在，则申请一个开关并设置为state状态
 func set_switch(switch_name : String, switch_type : SWITCH_TYPE, state : SWITCH_STATE):
-	
+
 	var state_ : SWITCH_STATE = state
 	if state_ == SWITCH_STATE.UNDEF:
 		push_warning("SwitchSystem Warning : 在定义开关时状态不可为UNDEF，将自动改为OFF")
 		state_ = SWITCH_STATE.OFF
-	
+
 	if switch_sheet.query_log("switch_name", switch_name) == {}:
 		#写入数据表
 		switch_sheet.add_log({"switch_name" : switch_name, "switch_type" : switch_type, "switch_state" : state_})
@@ -62,24 +63,24 @@ func set_switch(switch_name : String, switch_type : SWITCH_TYPE, state : SWITCH_
 						old_state,
 						state_
 					)
-				
+
 				break
-	
+
 ##检查某个开关的状态
 func check_switch(switch_name : String) -> SWITCH_STATE:
-	
+
 	var switch_log : Dictionary = switch_sheet.query_log("switch_name", switch_name)
-	
+
 	if switch_log != {}:
 		return switch_log["switch_state"]
 	else:
 		return SWITCH_STATE.UNDEF
-		
+
 ##删除一个开关
 func del_switch(switch_name : String):
-	
+
 	var switch_log : Dictionary = switch_sheet.query_log("switch_name", switch_name)
-	
+
 	if switch_log != {}:
 		#从表中删除
 		for i in range(0, switch_sheet.count_log()):
@@ -88,9 +89,9 @@ func del_switch(switch_name : String):
 					var old_state = switch_sheet.get_value("switch_state", i)
 					switch_sheet.del_log(i)
 					self.switch_changed_signal.emit(
-						self, 
-						switch_name, 
-						old_state, 
+						self,
+						switch_name,
+						old_state,
 						SWITCH_STATE.UNDEF
 					)
 				break
@@ -104,4 +105,4 @@ func update_switch():
 			var old_state : SWITCH_STATE = switch_sheet.get_value("switch_state", i)
 			if old_state == SWITCH_STATE.ON:
 				switch_sheet.set_value("switch_state", i, SWITCH_STATE.OFF)
-				
+

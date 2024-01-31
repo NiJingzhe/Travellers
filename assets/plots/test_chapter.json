@@ -1,8 +1,10 @@
 {
+	"discription" : "该文件是一个剧情文件，罗列了剧情",
 	"file_name": "test_chapter.json",
 	"head_list": [
 		1,
-		4
+		4,
+		6
 	],
 	"plots": [
 		{
@@ -16,8 +18,12 @@
 			"next": [
 				2
 			],
-			"require_off": [],
-			"require_on": [],
+			"require_off": [
+				"enter_choice_area"
+			],
+			"require_on": [
+				"test_chapter"
+			],
 			"choices": [],
 			"type": "narration"
 		},
@@ -30,7 +36,9 @@
 			"next": [
 				3
 			],
-			"require_off": [],
+			"require_off": [
+				"enter_choice_area"
+			],
 			"require_on": [
 				"f_pressed"
 			],
@@ -48,7 +56,9 @@
 			"next": [
 				-1
 			],
-			"require_off": [],
+			"require_off": [
+				"enter_choice_area"
+			],
 			"require_on": [
 				"f_pressed"
 			],
@@ -97,13 +107,13 @@
 		{
 			"action": [],
 			"content": {
-				"text": "请做一个选择"
+				"text": "我要做一个选择"
 			},
 			"id": 6,
 			"next": [],
 			"require_off": [],
 			"require_on": [
-				"f_pressed"
+				"enter_choice_area"
 			],
 			"choices": [
 				{
@@ -131,7 +141,7 @@
 					]
 				}
 			],
-			"type": "narration"
+			"type": "monologue"
 		},
 		{
 			"action": [],
@@ -143,9 +153,7 @@
 				-6
 			],
 			"require_off": [],
-			"require_on": [
-				""
-			],
+			"require_on": [],
 			"choices": [],
 			"type": "narration"
 		},
@@ -197,3 +205,6 @@
 		"test_chapter"
 	]
 }
+
+
+

@@ -36,13 +36,13 @@ func init_interactable_object(listener : Callable):
 func enter_call_back(area):
 	if area.name in self.detect_list:
 		self.detect_call_back(area, IN)
-	
+
 func exit_call_back(area):
 	if area.name in self.detect_list:
 		self.detect_call_back(area, OUT)
-	
+
 func detect_call_back(_area:Area3D, _in_or_out:int):
 	pass
 
-	
+
 

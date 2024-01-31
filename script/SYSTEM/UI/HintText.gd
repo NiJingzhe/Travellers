@@ -14,6 +14,6 @@ func _process(_delta):
 func show_hint(text_ : String):
 	self.text = text_
 	self.visible = true
-	
+
 func hide_hint():
 	self.visible = false
