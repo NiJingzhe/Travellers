@@ -50,16 +50,6 @@ glow_blend_mode = 0
 volumetric_fog_density = 0.01
 volumetric_fog_anisotropy = 0.9
 
-[sub_resource type="SystemFont" id="SystemFont_nawta"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_3hblv"]
-font = SubResource("SystemFont_nawta")
-font_size = 20
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3topm"]
-shader = ExtResource("13_dc21e")
-shader_parameter/pixelRate = 480.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jejwc"]
 shader = ExtResource("19_u23fr")
 shader_parameter/outline_color = null
@@ -84,6 +74,16 @@ shader_parameter/grazing_angle_modulation_factor = 50.0
 material = SubResource("ShaderMaterial_qf35f")
 flip_faces = true
 size = Vector2(2, 2)
+
+[sub_resource type="SystemFont" id="SystemFont_nawta"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hblv"]
+font = SubResource("SystemFont_nawta")
+font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3topm"]
+shader = ExtResource("13_dc21e")
+shader_parameter/pixelRate = 500.0
 
 [node name="MainWorld" type="Node3D"]
 
@@ -114,33 +114,6 @@ script = ExtResource("4_stu5o")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cwefi")
 
-[node name="UI" type="Control" parent="."]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("15_8hg25")
-
-[node name="Dialoug" parent="UI" instance=ExtResource("14_ftsfm")]
-layout_mode = 1
-offset_left = 19.0
-offset_top = 379.0
-offset_right = -21.0
-offset_bottom = 339.0
-
-[node name="HintText" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 620.0
-offset_top = 291.0
-offset_right = 721.0
-offset_bottom = 325.0
-text = "按F交互"
-label_settings = SubResource("LabelSettings_3hblv")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("17_q10x4")
-
 [node name="test_map" parent="." instance=ExtResource("7_4chcs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.030098, 0.599033, -0.373697)
 script = ExtResource("12_1k222")
@@ -170,14 +143,6 @@ transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.07111, 1.9074, 0.8830
 unique_name_in_owner = true
 script = ExtResource("6_udkse")
 
-[node name="PixelizedShader" type="Sprite2D" parent="."]
-visible = false
-z_index = -100
-material = SubResource("ShaderMaterial_3topm")
-position = Vector2(576, 323.5)
-scale = Vector2(8.98438, 5.03906)
-texture = ExtResource("14_dkalt")
-
 [node name="PostProcessContainer" type="SubViewportContainer" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_jejwc")
@@ -197,7 +162,7 @@ handle_input_locally = false
 msaa_3d = 2
 use_debanding = true
 use_occlusion_culling = true
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="PostProcessCam" type="Camera3D" parent="PostProcessContainer/SubViewport"]
@@ -210,6 +175,40 @@ transform = Transform3D(0.99983, 0.00924106, -0.0160059, -1.77636e-15, 0.866025,
 layers = 2
 mesh = SubResource("QuadMesh_at7tp")
 skeleton = NodePath("../../../..")
+
+[node name="UI" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_8hg25")
+
+[node name="Dialoug" parent="UI" instance=ExtResource("14_ftsfm")]
+layout_mode = 1
+offset_left = 387.0
+offset_top = 891.0
+offset_right = 347.0
+offset_bottom = 851.0
+
+[node name="HintText" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 1009.0
+offset_top = 507.0
+offset_right = 1110.0
+offset_bottom = 541.0
+text = "按F交互"
+label_settings = SubResource("LabelSettings_3hblv")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("17_q10x4")
+
+[node name="PixelizedShader" type="Sprite2D" parent="."]
+z_index = -100
+material = SubResource("ShaderMaterial_3topm")
+position = Vector2(960.5, 540.5)
+scale = Vector2(14.9922, 8.42969)
+texture = ExtResource("14_dkalt")
 
 [editable path="test_map"]
 [editable path="SunSystem"]

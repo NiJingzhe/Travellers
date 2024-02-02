@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://br2vn8l87xgn4"]
+[gd_scene load_steps=5 format=3 uid="uid://br2vn8l87xgn4"]
 
 [ext_resource type="Script" path="res://script/SYSTEM/UI/dialoug.gd" id="1_3a1o1"]
 [ext_resource type="Texture2D" uid="uid://bd03t60osa7gu" path="res://assets/texture/dialougSystem/DialougBox.png" id="2_h3ckr"]
 [ext_resource type="FontFile" uid="uid://bsu3gevrmpbu" path="res://assets/font/IPix中文像素字体.ttf" id="3_wdbm2"]
-[ext_resource type="Texture2D" uid="uid://dfkmova7mnx5i" path="res://assets/texture/role/test_girl1/立绘.png" id="4_d3wsc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0xub6"]
 font = ExtResource("3_wdbm2")
@@ -26,10 +25,10 @@ script = ExtResource("1_3a1o1")
 [node name="DialougBox" type="TextureRect" parent="."]
 texture_filter = 3
 layout_mode = 0
-offset_left = -1.0
+offset_left = 15.0
 offset_top = 3.0
-offset_right = 868.0
-offset_bottom = 267.0
+offset_right = 1124.0
+offset_bottom = 175.0
 texture = ExtResource("2_h3ckr")
 
 [node name="Label" type="Label" parent="DialougBox"]
@@ -37,8 +36,8 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 90.0
 offset_top = 16.0
-offset_right = 639.0
-offset_bottom = 142.0
+offset_right = 962.0
+offset_bottom = 72.0
 text = "你好啊旅行者"
 label_settings = SubResource("LabelSettings_0xub6")
 horizontal_alignment = 1
@@ -53,10 +52,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -242.0
-offset_top = -117.0
-offset_right = -21.0
-offset_bottom = 94.0
+offset_left = -179.0
+offset_top = -77.0
+offset_right = -28.0
+offset_bottom = 67.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("4_d3wsc")

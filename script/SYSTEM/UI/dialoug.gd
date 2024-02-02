@@ -20,7 +20,13 @@ func _process(_delta):
 
 func show_dialoug(text_ : String, image_ : String, choices_ : Array, choose_call_back):
 	self.text_area.text = text_
-	self.image.texture.resource_path = image_ if image_ != "" else "res://assets/texture/role/test_girl1/立绘.png"
+	if image_ == "":
+		self.image.visible = false
+	else:
+		self.image.visible = true
+		var avater : Texture2D
+		avater = load(image_) as Texture2D
+		self.image.texture = avater
 	self.visible = true
 	if choose_call_back != null and not self.chosen_maked.is_connected(choose_call_back):
 		self.chosen_maked.connect(choose_call_back, 4)

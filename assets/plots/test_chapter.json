@@ -19,7 +19,8 @@
 				2
 			],
 			"require_off": [
-				"enter_choice_area"
+				"enter_choice_area",
+				"close_to_box"
 			],
 			"require_on": [
 				"test_chapter"
@@ -37,7 +38,8 @@
 				3
 			],
 			"require_off": [
-				"enter_choice_area"
+				"enter_choice_area",
+				"close_to_box"
 			],
 			"require_on": [
 				"f_pressed"
@@ -57,7 +59,8 @@
 				-1
 			],
 			"require_off": [
-				"enter_choice_area"
+				"enter_choice_area",
+				"close_to_box"
 			],
 			"require_on": [
 				"f_pressed"
