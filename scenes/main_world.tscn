@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=34 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/system/player.tscn" id="1_cpdod"]
 [ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/system/sun_system.tscn" id="1_doesi"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://12qyvg0nh4o8" path="res://icon.svg" id="14_dkalt"]
 [ext_resource type="PackedScene" uid="uid://br2vn8l87xgn4" path="res://scenes/system/dialoug.tscn" id="14_ftsfm"]
 [ext_resource type="Script" path="res://script/SYSTEM/UI/UI.gd" id="15_8hg25"]
+[ext_resource type="Script" path="res://script/SYSTEM/PlotSystem/Action.gd" id="16_r2f3y"]
 [ext_resource type="Script" path="res://script/SYSTEM/UI/HintText.gd" id="17_q10x4"]
 [ext_resource type="Script" path="res://script/postprocessCam/PostProcessCam.gd" id="19_7i2tn"]
 [ext_resource type="Shader" path="res://assets/shaders/post_process_outline/dep_norm_outline.gdshader" id="19_n2u2a"]
@@ -142,6 +143,10 @@ transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.07111, 1.9074, 0.8830
 [node name="PlotSystem" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("6_udkse")
+
+[node name="ActionSystem" type="Node" parent="PlotSystem"]
+unique_name_in_owner = true
+script = ExtResource("16_r2f3y")
 
 [node name="PostProcessContainer" type="SubViewportContainer" parent="."]
 visible = false

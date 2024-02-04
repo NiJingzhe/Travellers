@@ -15,6 +15,7 @@ var plot_chain_num : int = 0
 @onready var plot_sheet : PlotSheet = %PlotSheet as PlotSheet
 @onready var switch_system : SwitchSystem = %SwitchSystem as SwitchSystem
 @onready var ui : UI = %UI as UI
+@onready var action_system : ActionSystem = %ActionSystem as ActionSystem
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

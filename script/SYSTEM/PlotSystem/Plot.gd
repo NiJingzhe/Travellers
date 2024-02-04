@@ -89,10 +89,6 @@ func busy_self_check(switch_system : SwitchSystem) -> bool:
 
 	return check_pass
 
-func execute_action(action : Dictionary):
-	pass
-
-
 # override State的状态转移检查函数
 func trans_check(new_state : State):
 	var new_plot = new_state as Plot
@@ -150,7 +146,7 @@ func state_process(_delta):
 	# 如果当前剧情是一个action剧情，那么在process中会调用action_system的接口执行action
 	if self.action.size() > 0:
 		for action_ in self.action:
-			self.execute_action(action_.duplicate(true) as Dictionary)
+			self.plot_chain.action_system.execute_action(action_)
 
 # override
 func into_state(_from : State):

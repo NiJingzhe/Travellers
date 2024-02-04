@@ -8,6 +8,7 @@ var head_id : int = 0
 @onready var switch_system : SwitchSystem = self.get_parent().switch_system as SwitchSystem
 @onready var plot_sheet : PlotSheet = self.get_parent().plot_sheet as PlotSheet
 @onready var ui : UI = self.get_parent().ui as UI
+@onready var action_system : ActionSystem = self.get_parent().action_system as ActionSystem
 
 func _ready():
 	self.transfer_check_finished.connect((self.get_parent() as PlotSystem).all_chain_transfer_check_finished)

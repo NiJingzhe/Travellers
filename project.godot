@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main_world.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventBus="*res://script/SYSTEM/EventBus/EventBus.gd"
+
 [display]
 
 window/size/viewport_width=1920

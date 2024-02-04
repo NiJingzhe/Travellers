@@ -1,5 +1,4 @@
 extends Node
-class_name EventBus 
 
 var event_queue : Dictionary = {}
 
