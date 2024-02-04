@@ -10,7 +10,7 @@ var require_on : Array
 var require_off : Array
 var type : String
 
-var finished : bool = false
+var have_shown : bool = false
 var chosen : String = ""
 
 @onready var plot_chain : PlotChain = self.get_parent()
@@ -65,7 +65,7 @@ func check_plot(switch_system : SwitchSystem, plot : Plot) -> bool:
 			check_pass = false
 
 	# 当然能够转移到下一个剧情还有一个条件是当前剧情已经完成了
-	return check_pass and self.finished
+	return check_pass and self.have_shown
 
 # 这个函数用于在process中检查自身是否应该显示，例如靠近某个物体触发的剧情效果在远离该物体时不应该显示
 # 但是该函数不会检查f_pressed开关，因为该开关是一个 one shot 开关，如果检查则任何剧情都会在触发的一瞬间取消显示
@@ -102,43 +102,44 @@ func state_process(_delta):
 
 	# dummy head 剧情节点将会直接结束
 	if self.id == 0:
-		self.finished = true
+		self.have_shown = true
 
+	# 求解process是否进行的条件
 	# 只有在 未显示过 和 期间满足 两个条件下 才会调用ui接口显示内容
-	if not finished and during_satisfy:
+	var can_process = not self.have_shown and                                  \
+					  during_satisfy
+
+
+	if can_process:
 
 		# 根据 type 决定调用 ui 接口的行为
+
+		# 决定 image
 		var image : String = ""
 		if self.type == "narration":
 			image = ""
 		elif self.type == "monologue":
 			image = "res://assets/texture/role/model_character_avater.png"
 
+		# 决定选择列表
+		var choices_ = []
 		if self.choices.size() == 0:
-			ui.show_element(
-				ui.element_type.DIALOUG,
-				{
-					"text" : self.content["text"],
-					"image" : image,
-					"choices" : [],
-					"chosen_call_back" : null
-				}
-			)
 			# 显示过是一个 one shot 的flag
-			self.finished = true
-
+			self.have_shown = true
 		elif self.choices.size() > 0:
-			ui.show_element(ui.element_type.DIALOUG, {
+			choices_ = self.choices.duplicate(true)
+
+		ui.show_element(ui.element_type.DIALOUG, {
 				"text" : self.content["text"],
 				"image" : image,
-				"choices" : self.choices.duplicate(true),
+				"choices" : choices_.duplicate(true),
 				"chosen_call_back" : self.chosen_call_back
-			})
+		})
 
-	# 如果期间不满足了，再次进入时需要重新显示，所以需要把 finished 重新设置为false
+	# 如果期间不满足了，再次进入时需要重新显示，所以需要把 have_shown 重新设置为false
 	if not during_satisfy:
 		ui.hide_element(ui.element_type.DIALOUG)
-		self.finished = false
+		self.have_shown = false
 
 
 # override
@@ -146,7 +147,7 @@ func into_state(_from : State):
 
 	# 如果是 end plot，在进入的时候就直接结束并返回了
 	if self.id == -self.plot_chain.head_id:
-		finished = true
+		self.have_shown = true
 		return
 
 	# 对于实际剧情节点，每次进入该剧情时需要更新progress
@@ -164,16 +165,16 @@ func into_state(_from : State):
 	)
 
 	self.chosen = ""
-	self.finished = false
+	self.have_shown = false
 
 # override
 func outof_state(_to : State):
 	self.chosen = ""
-	self.finished = false
+	self.have_shown = false
 	ui.hide_element(ui.element_type.DIALOUG)
 
 # 做出选择call back
 func chosen_call_back(content_ : String):
 	self.chosen = content_
-	self.finished = true
+	self.have_shown = true
 

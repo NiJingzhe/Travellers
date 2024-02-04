@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://br2vn8l87xgn4"]
 
-[ext_resource type="Script" path="res://script/SYSTEM/UI/dialoug.gd" id="1_3a1o1"]
+[ext_resource type="Script" path="res://script/SYSTEM/UI/Dialoug.gd" id="1_sgq27"]
 [ext_resource type="Texture2D" uid="uid://bd03t60osa7gu" path="res://assets/texture/dialougSystem/DialougBox.png" id="2_h3ckr"]
 [ext_resource type="FontFile" uid="uid://bsu3gevrmpbu" path="res://assets/font/IPix中文像素字体.ttf" id="3_wdbm2"]
 
@@ -20,7 +20,7 @@ offset_right = -279.0
 offset_bottom = -382.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3a1o1")
+script = ExtResource("1_sgq27")
 
 [node name="DialougBox" type="TextureRect" parent="."]
 texture_filter = 3
