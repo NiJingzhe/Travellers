@@ -9,7 +9,12 @@
 	"plots": [
 		{
 			"action": [
-				"disable_move"
+				{
+					"command": "switch_on",
+					"param": {
+						"who": "Player"
+					}
+				}
 			],
 			"content": {
 				"text": "欢迎来到测试章节"
@@ -49,7 +54,6 @@
 		},
 		{
 			"action": [
-				"enable_move"
 			],
 			"content": {
 				"text": "旁白文本测试结束"
@@ -70,7 +74,12 @@
 		},
 		{
 			"action": [
-				"disable_move"
+				{
+					"command": "disable_move",
+					"param": {
+						"who": "Player"
+					}
+				}
 			],
 			"content": {
 				"avatar": "player_avatar",
@@ -90,7 +99,12 @@
 		},
 		{
 			"action": [
-				"enable_move"
+				{
+					"command": "enable_move",
+					"param": {
+						"who": "Player"
+					}
+				}
 			],
 			"content": {
 				"text": "你发现箱子里散发出金色的光芒，似乎是...什么也没有，只是游戏作者在里面放了一个光源而已......"

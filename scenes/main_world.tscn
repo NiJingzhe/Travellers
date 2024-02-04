@@ -167,11 +167,13 @@ render_target_update_mode = 0
 
 [node name="PostProcessCam" type="Camera3D" parent="PostProcessContainer/SubViewport"]
 transform = Transform3D(0.563209, 0, 0.826315, 0, 1, 0, -0.826315, 0, 0.563209, 2.9873, 4.38855, 3.91035)
+visible = false
 projection = 1
 script = ExtResource("19_7i2tn")
 
 [node name="OutlineCaster" type="MeshInstance3D" parent="PostProcessContainer/SubViewport/PostProcessCam"]
 transform = Transform3D(0.99983, 0.00924106, -0.0160059, -1.77636e-15, 0.866025, 0.5, 0.018482, -0.499914, 0.865877, 0.165445, -0.355874, -2.94118)
+visible = false
 layers = 2
 mesh = SubResource("QuadMesh_at7tp")
 skeleton = NodePath("../../../..")
@@ -204,6 +206,7 @@ vertical_alignment = 1
 script = ExtResource("17_q10x4")
 
 [node name="PixelizedShader" type="Sprite2D" parent="."]
+visible = false
 z_index = -100
 material = SubResource("ShaderMaterial_3topm")
 position = Vector2(960.5, 540.5)

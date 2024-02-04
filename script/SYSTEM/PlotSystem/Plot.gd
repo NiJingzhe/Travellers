@@ -89,6 +89,9 @@ func busy_self_check(switch_system : SwitchSystem) -> bool:
 
 	return check_pass
 
+func execute_action(action : Dictionary):
+	pass
+
 
 # override State的状态转移检查函数
 func trans_check(new_state : State):
@@ -98,19 +101,18 @@ func trans_check(new_state : State):
 # override State的process
 func state_process(_delta):
 
-	var during_satisfy = self.busy_self_check(self.plot_chain.switch_system)
-
 	# dummy head 剧情节点将会直接结束
 	if self.id == 0:
 		self.have_shown = true
 
+########################### SHOW PROCESS ##################################
+	var during_satisfy = self.busy_self_check(self.plot_chain.switch_system)
 	# 求解process是否进行的条件
 	# 只有在 未显示过 和 期间满足 两个条件下 才会调用ui接口显示内容
-	var can_process = not self.have_shown and                                  \
-					  during_satisfy
+	var can_show = not self.have_shown and during_satisfy
 
 
-	if can_process:
+	if can_show:
 
 		# 根据 type 决定调用 ui 接口的行为
 
@@ -120,6 +122,8 @@ func state_process(_delta):
 			image = ""
 		elif self.type == "monologue":
 			image = "res://assets/texture/role/model_character_avater.png"
+		else:
+			image = "res://assets/texture/role/" + self.type + "_avater.png"
 
 		# 决定选择列表
 		var choices_ = []
@@ -140,7 +144,13 @@ func state_process(_delta):
 	if not during_satisfy:
 		ui.hide_element(ui.element_type.DIALOUG)
 		self.have_shown = false
+########################### SHOW PROCESS ##################################
 
+########################### ACTION PROCESS ################################
+	# 如果当前剧情是一个action剧情，那么在process中会调用action_system的接口执行action
+	if self.action.size() > 0:
+		for action_ in self.action:
+			self.execute_action(action_.duplicate(true) as Dictionary)
 
 # override
 func into_state(_from : State):
