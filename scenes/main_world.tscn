@@ -88,6 +88,9 @@ shader_parameter/pixelRate = 500.0
 
 [node name="MainWorld" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cwefi")
+
 [node name="DataBase" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_hno5f")
@@ -111,9 +114,6 @@ script = ExtResource("5_losx0")
 [node name="SwitchSystem" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_stu5o")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cwefi")
 
 [node name="test_map" parent="." instance=ExtResource("7_4chcs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.030098, 0.599033, -0.373697)

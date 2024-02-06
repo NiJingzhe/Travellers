@@ -10,9 +10,10 @@
 		{
 			"action": [
 				{
-					"command": "switch_on",
+					"command": "set_switch",
 					"param": {
-						"who": "Player"
+						"name" : "disable_other_plot",
+						"state" : "on"
 					}
 				}
 			],
@@ -54,6 +55,13 @@
 		},
 		{
 			"action": [
+				{
+					"command": "set_switch",
+					"param": {
+						"name": "disable_other_plot",
+						"state": "off"
+					}
+				}
 			],
 			"content": {
 				"text": "旁白文本测试结束"
