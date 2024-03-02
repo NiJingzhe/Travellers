@@ -9,7 +9,7 @@ func trans_check(new_state : State):
 		return player.climb_mode
 	else:
 		return false
-		
+
 func state_process(delta):
 	if not player.is_on_floor():
 		player.velocity.y -= gravity * delta
@@ -27,9 +27,9 @@ func state_process(delta):
 		player.animation_state.travel('Walk')
 	else:
 		player.animation_state.travel('Idle')
-	
+
 	player.direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
+
 	if player.direction:
 		player.velocity.x = player.direction.x * player.SPEED
 		player.velocity.z = player.direction.z * player.SPEED
@@ -39,10 +39,10 @@ func state_process(delta):
 		player.velocity.z = move_toward(player.velocity.z, 0, player.SPEED)
 
 	player.move_and_slide()
-	
+
 func into_state(_from : State):
 	pass
-	
+
 func outof_state(_to : State):
 	pass
 

@@ -24,7 +24,7 @@ func _ready():
 	#shadow_blur_curve.bake()
 	#shadow_transparency_curve.bake()
 	pass
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	game_time = root.game_time
@@ -35,12 +35,12 @@ func _process(_delta):
 	self.rotation_degrees.x = angle_curve.sample_baked(temp_game_time)
 	self.shadow_blur = shadow_blur_curve.sample_baked(self.light_energy) * shadow_blur_factor
 	self.shadow_opacity = shadow_transparency_curve.sample_baked(self.light_energy) * shadow_transparency_factor
-	
+
 	if self.rotation_degrees.x > 10 and self.rotation_degrees.x < 170:
 		self.shadow_enabled = false
 	else:
 		self.shadow_enabled = true
-		
+
 	if game_time >= DAWN_START and game_time <= get_mid_value(DAWN_START, DAY_START, 0.6):
 		self.light_color = dawntime_color
 	elif game_time > get_mid_value(DAWN_START, DAY_START, 0.6) and game_time <= DAY_START:
@@ -60,7 +60,7 @@ func _process(_delta):
 
 func get_mid_value(start:float, end:float, t:float) -> float:
 	return t * (end - start) + start
-		
+
 func get_weight(start:float, end:float, mid_val:float) -> float:
 	return (mid_val - start) / (end - start)
 

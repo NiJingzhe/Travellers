@@ -1,34 +1,78 @@
-[gd_scene load_steps=4 format=3 uid="uid://doqsjhvimdh2o"]
+[gd_scene load_steps=8 format=3 uid="uid://doqsjhvimdh2o"]
 
 [ext_resource type="Script" path="res://script/SYSTEM/TimeSystem/SunSystem.gd" id="1_0u6f4"]
 [ext_resource type="Script" path="res://script/SYSTEM/TimeSystem/ShadowCaster.gd" id="1_mdjbs"]
+[ext_resource type="Shader" path="res://assets/shaders/sky_shaders/sky_color_change.gdshader" id="2_vblrv"]
 [ext_resource type="Script" path="res://script/SYSTEM/TimeSystem/ColorLight.gd" id="3_sho2e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86ffr"]
+shader = ExtResource("2_vblrv")
+shader_parameter/dawntime_color = Color(0.0745098, 0.164706, 0.290196, 1)
+shader_parameter/daytime_color = Color(0.815686, 0.827451, 0.631373, 1)
+shader_parameter/dusktime_color = Color(0.627451, 0.301961, 0.0117647, 1)
+shader_parameter/nighttime_color = Color(0.0588235, 0.0588235, 0.282353, 1)
+shader_parameter/day_stage = 1
+shader_parameter/stage_progress = 0.47
+shader_parameter/light_energy = 0.13
+
+[sub_resource type="Sky" id="Sky_6w7xv"]
+sky_material = SubResource("ShaderMaterial_86ffr")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_klidl"]
+background_mode = 2
+sky = SubResource("Sky_6w7xv")
+sky_custom_fov = 60.0
+ambient_light_source = 1
+ambient_light_color = Color(0.545098, 0.564706, 0.564706, 1)
+reflected_light_source = 2
+tonemap_mode = 2
+ssr_enabled = true
+ssr_max_steps = 256
+ssr_fade_in = 0.332871
+ssao_enabled = true
+ssil_enabled = true
+ssil_radius = 16.0
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_y_scale = 0
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.2
+glow_strength = 1.2
+glow_bloom = 0.06
+glow_blend_mode = 1
+glow_hdr_threshold = 0.9
+glow_map_strength = 1.0
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.843137, 0.819608, 0.678431, 1)
+volumetric_fog_anisotropy = 0.9
 
 [node name="SunSystem" type="Node3D"]
 script = ExtResource("1_0u6f4")
 energy_factor = 0.0
 shadow_blur_factor = 0.0
 shadow_transparency_factor = 0.0
+time_of_whole_day = 30.0
+
+[node name="Env" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_klidl")
+script = ExtResource("3_sho2e")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
 
 [node name="ShadowCaster" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.321656, 0.925504, 0.199952, -0.538162, 0.00494633, 0.842827, 0.77905, -0.378707, 0.499662, 1, 7.69132, -1.07288e-06)
-light_energy = 0.6
+transform = Transform3D(0.894154, 0, -0.447759, 0, 1, 0, 0.447759, 0, 0.894154, 0.974688, 7.78496, -1.07288e-06)
+rotation_order = 0
+light_energy = 0.4
+light_bake_mode = 1
 light_cull_mask = 4293918721
 shadow_enabled = true
-shadow_bias = 0.0
+shadow_normal_bias = 4.0
 shadow_reverse_cull_face = true
 shadow_blur = 0.2
 script = ExtResource("1_mdjbs")
-
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.000294249, -0.999985, -0.00546315, -0.000297463, -0.00546306, 0.999985, -1, 0.00029587, -0.000295851, 0, 11, 0)
-shadow_normal_bias = 2.6
-shadow_reverse_cull_face = true
-shadow_blur = 0.2
-script = ExtResource("3_sho2e")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

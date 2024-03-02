@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d1fhknnlbnafw"]
+[gd_scene load_steps=25 format=3 uid="uid://d1fhknnlbnafw"]
 
 [ext_resource type="PackedScene" uid="uid://6uqhlg6628o8" path="res://scenes/system/player.tscn" id="1_cpdod"]
 [ext_resource type="PackedScene" uid="uid://doqsjhvimdh2o" path="res://scenes/system/sun_system.tscn" id="1_doesi"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://script/SYSTEM/SwitchSystem/SwitchSystem.gd" id="4_stu5o"]
 [ext_resource type="Script" path="res://script/database/PlotSheet.gd" id="5_losx0"]
 [ext_resource type="Script" path="res://script/SYSTEM/PlotSystem/PlotSystem.gd" id="6_udkse"]
-[ext_resource type="PackedScene" uid="uid://doeosqkm7i4vl" path="res://assets/model/map/test_map/test_map.tscn" id="7_4chcs"]
+[ext_resource type="PackedScene" uid="uid://doeosqkm7i4vl" path="res://assets/model/map/test_map/test_map.tscn" id="7_n2s6g"]
 [ext_resource type="Curve" uid="uid://7vrfdv24ehbh" path="res://script/SYSTEM/TimeSystem/energy_curve.tres" id="7_w4bxf"]
 [ext_resource type="Curve" uid="uid://bvhm0bb68xq47" path="res://script/SYSTEM/TimeSystem/angle_curve.tres" id="8_xgqm8"]
 [ext_resource type="Curve" uid="uid://5eyg5xflqcxm" path="res://script/SYSTEM/TimeSystem/shadow_blur_curve.tres" id="9_mc4yv"]
@@ -21,60 +21,6 @@
 [ext_resource type="Script" path="res://script/SYSTEM/UI/UI.gd" id="15_8hg25"]
 [ext_resource type="Script" path="res://script/SYSTEM/PlotSystem/Action.gd" id="16_r2f3y"]
 [ext_resource type="Script" path="res://script/SYSTEM/UI/HintText.gd" id="17_q10x4"]
-[ext_resource type="Script" path="res://script/postprocessCam/PostProcessCam.gd" id="19_7i2tn"]
-[ext_resource type="Shader" path="res://assets/shaders/post_process_outline/dep_norm_outline.gdshader" id="19_n2u2a"]
-[ext_resource type="Shader" path="res://assets/shaders/post_process_outline/fast_outline.gdshader" id="19_u23fr"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_44m1t"]
-sky_energy_multiplier = 0.2
-
-[sub_resource type="Sky" id="Sky_6w7xv"]
-sky_material = SubResource("ProceduralSkyMaterial_44m1t")
-
-[sub_resource type="Environment" id="Environment_cwefi"]
-background_mode = 2
-sky = SubResource("Sky_6w7xv")
-ambient_light_source = 3
-ambient_light_color = Color(0.94902, 0.956863, 0.705882, 1)
-reflected_light_source = 2
-tonemap_mode = 2
-ssr_enabled = true
-ssr_max_steps = 128
-ssil_sharpness = 0.8
-sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 0.3
-glow_enabled = true
-glow_intensity = 0.6
-glow_strength = 0.6
-glow_bloom = 0.01
-glow_blend_mode = 0
-volumetric_fog_density = 0.01
-volumetric_fog_anisotropy = 0.9
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jejwc"]
-shader = ExtResource("19_u23fr")
-shader_parameter/outline_color = null
-shader_parameter/outline_width = 1.2
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qf35f"]
-render_priority = 0
-shader = ExtResource("19_n2u2a")
-shader_parameter/outlineColor = Color(0, 0, 0, 0.780392)
-shader_parameter/depth_threshold = 0.025
-shader_parameter/normal_threshold = 0.5
-shader_parameter/normal_smoothing = 0.77
-shader_parameter/max_thickness = 2.0
-shader_parameter/min_thickness = 0.5
-shader_parameter/max_distance = 75.0
-shader_parameter/min_distance = 2.0
-shader_parameter/grazing_fresnel_power = 5.0
-shader_parameter/grazing_angle_mask_power = 1.0
-shader_parameter/grazing_angle_modulation_factor = 50.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_at7tp"]
-material = SubResource("ShaderMaterial_qf35f")
-flip_faces = true
-size = Vector2(2, 2)
 
 [sub_resource type="SystemFont" id="SystemFont_nawta"]
 
@@ -84,12 +30,9 @@ font_size = 20
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3topm"]
 shader = ExtResource("13_dc21e")
-shader_parameter/pixelRate = 500.0
+shader_parameter/pixelRate = 512.0
 
 [node name="MainWorld" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cwefi")
 
 [node name="DataBase" type="Node" parent="."]
 unique_name_in_owner = true
@@ -115,13 +58,16 @@ script = ExtResource("5_losx0")
 unique_name_in_owner = true
 script = ExtResource("4_stu5o")
 
-[node name="test_map" parent="." instance=ExtResource("7_4chcs")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.030098, 0.599033, -0.373697)
+[node name="Player" parent="." instance=ExtResource("1_cpdod")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -5.1646, 7.51973, -5.42672)
+
+[node name="test_map" parent="." instance=ExtResource("7_n2s6g")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("12_1k222")
 
 [node name="SunSystem" parent="." instance=ExtResource("1_doesi")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.91607, 7.0834, 9.74445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1048, 37.6996, 9.74445)
 energy_curve = ExtResource("7_w4bxf")
 energy_factor = 1.0
 angle_curve = ExtResource("8_xgqm8")
@@ -129,16 +75,14 @@ shadow_blur_curve = ExtResource("9_mc4yv")
 shadow_blur_factor = 1.0
 shadow_transparency_curve = ExtResource("10_iire7")
 shadow_transparency_factor = 1.0
-dawntime_color = Color(0.513726, 0.607843, 0.635294, 1)
+dawntime_color = Color(0.145098, 0.192157, 0.207843, 1)
 daytime_color = Color(0.952941, 0.952941, 0.827451, 1)
-dusktime_color = Color(0.87451, 0.564706, 0.372549, 1)
-nighttime_color = Color(0.192157, 0.192157, 0.482353, 1)
+dusktime_color = Color(0.670588, 0.270588, 0.133333, 1)
+nighttime_color = Color(0.0705882, 0.0705882, 0.215686, 1)
+time_of_whole_day = 120.0
 
-[node name="ShadowCaster" parent="SunSystem" index="1"]
+[node name="ShadowCaster" parent="SunSystem" index="2"]
 transform = Transform3D(0.375624, 0.896592, 0.234582, -0.538162, 0.00494635, 0.842827, 0.754512, -0.442829, 0.48437, 1, 7.69132, -9.53674e-07)
-
-[node name="Player" parent="." instance=ExtResource("1_cpdod")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.07111, 1.9074, 0.883036)
 
 [node name="PlotSystem" type="Node" parent="."]
 unique_name_in_owner = true
@@ -147,41 +91,6 @@ script = ExtResource("6_udkse")
 [node name="ActionSystem" type="Node" parent="PlotSystem"]
 unique_name_in_owner = true
 script = ExtResource("16_r2f3y")
-
-[node name="PostProcessContainer" type="SubViewportContainer" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_jejwc")
-clip_contents = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="PostProcessContainer"]
-transparent_bg = true
-handle_input_locally = false
-msaa_3d = 2
-use_debanding = true
-use_occlusion_culling = true
-size = Vector2i(1920, 1080)
-render_target_update_mode = 0
-
-[node name="PostProcessCam" type="Camera3D" parent="PostProcessContainer/SubViewport"]
-transform = Transform3D(0.563209, 0, 0.826315, 0, 1, 0, -0.826315, 0, 0.563209, 2.9873, 4.38855, 3.91035)
-visible = false
-projection = 1
-script = ExtResource("19_7i2tn")
-
-[node name="OutlineCaster" type="MeshInstance3D" parent="PostProcessContainer/SubViewport/PostProcessCam"]
-transform = Transform3D(0.99983, 0.00924106, -0.0160059, -1.77636e-15, 0.866025, 0.5, 0.018482, -0.499914, 0.865877, 0.165445, -0.355874, -2.94118)
-visible = false
-layers = 2
-mesh = SubResource("QuadMesh_at7tp")
-skeleton = NodePath("../../../..")
 
 [node name="UI" type="Control" parent="."]
 unique_name_in_owner = true
@@ -192,6 +101,7 @@ offset_bottom = 40.0
 script = ExtResource("15_8hg25")
 
 [node name="Dialoug" parent="UI" instance=ExtResource("14_ftsfm")]
+visible = false
 layout_mode = 1
 offset_left = 387.0
 offset_top = 891.0
@@ -199,6 +109,7 @@ offset_right = 347.0
 offset_bottom = 851.0
 
 [node name="HintText" type="Label" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 1009.0
 offset_top = 507.0
@@ -211,12 +122,10 @@ vertical_alignment = 1
 script = ExtResource("17_q10x4")
 
 [node name="PixelizedShader" type="Sprite2D" parent="."]
-visible = false
 z_index = -100
 material = SubResource("ShaderMaterial_3topm")
 position = Vector2(960.5, 540.5)
 scale = Vector2(14.9922, 8.42969)
 texture = ExtResource("14_dkalt")
 
-[editable path="test_map"]
 [editable path="SunSystem"]

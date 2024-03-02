@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7j3pi3hcowc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a2c4s"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 3, 0)
+linear_accel_max = 2.0
+radial_accel_min = -0.8
+hue_variation_min = -0.61
+hue_variation_max = 0.63
+turbulence_enabled = true
+turbulence_noise_scale = 0.47
+turbulence_noise_speed_random = 0.18
+turbulence_influence_min = 0.07
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6e0su"]
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.345098, 0.32549, 0.278431, 1)
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_63nkb"]
+material = SubResource("StandardMaterial3D_6e0su")
+radius = 0.05
+height = 0.1
+radial_segments = 4
+rings = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qt5ba"]
+lifetime_randomness = 0.3
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 3, 0)
+linear_accel_max = 1.0
+radial_accel_min = -1.0
+radial_accel_max = 0.2
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+angle_min = -35.3
+angle_max = 44.2
+scale_min = 0.0
+scale_max = 0.0
+hue_variation_min = -0.21
+hue_variation_max = 0.06
+turbulence_enabled = true
+turbulence_noise_scale = 0.01
+turbulence_noise_speed_random = 0.1
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtav1"]
+shading_mode = 0
+albedo_color = Color(0.988235, 0.647059, 0.231373, 1)
+disable_receive_shadows = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_d74lh"]
+material = SubResource("StandardMaterial3D_rtav1")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ytqm0"]
+lifetime_randomness = 0.3
+emission_shape = 2
+emission_sphere_radius = 0.6
+gravity = Vector3(0, 2, 0)
+radial_accel_min = -3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7slt"]
+shading_mode = 0
+albedo_color = Color(0.760784, 0.239216, 0.00392157, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ch8xh"]
+material = SubResource("StandardMaterial3D_d7slt")
+size = Vector2(0.1, 0.1)
+
+[node name="fire" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165711, 0)
+light_color = Color(0.964706, 0.701961, 0.168627, 1)
+light_energy = 2.0
+light_bake_mode = 1
+light_cull_mask = 4294967293
+distance_fade_enabled = true
+distance_fade_begin = 120.0
+distance_fade_shadow = 150.0
+distance_fade_length = 120.0
+omni_range = 0.393959
+omni_attenuation = 4.59479
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+light_color = Color(0.980392, 0.701961, 0.0666667, 1)
+light_energy = 0.6
+light_bake_mode = 1
+light_cull_mask = 4294967293
+shadow_opacity = 0.4
+shadow_blur = 2.0
+omni_range = 12.0
+omni_attenuation = 0.707107
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73743, 0)
+layers = 2
+amount = 50
+visibility_aabb = AABB(-1.17724, -1.89512, -1.51865, 2.35448, 3.79023, 3.0373)
+process_material = SubResource("ParticleProcessMaterial_a2c4s")
+draw_pass_1 = SubResource("SphereMesh_63nkb")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+layers = 2
+amount = 200
+lifetime = 0.6
+visibility_aabb = AABB(-1.20138, -3.31652, -1.15366, 2.40277, 6.63304, 2.30733)
+process_material = SubResource("ParticleProcessMaterial_qt5ba")
+draw_pass_1 = SubResource("QuadMesh_d74lh")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
+layers = 2
+amount = 50
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_ytqm0")
+draw_pass_1 = SubResource("QuadMesh_ch8xh")

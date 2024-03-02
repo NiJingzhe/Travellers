@@ -8,7 +8,7 @@ input_name = "uv"
 output_port_for_preview = 0
 parameter_name = "pixelRate"
 hint = 2
-max = 512.0
+max = 1920.0
 step = 2.0
 default_value_enabled = true
 default_value = 8.0
@@ -40,7 +40,7 @@ source = 1
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float pixelRate : hint_range(0, 512, 2) = 8;
+uniform float pixelRate : hint_range(0, 1920, 2) = 8;
 uniform sampler2D screen_tex_frg_7 : hint_screen_texture;
 
 
@@ -81,7 +81,7 @@ mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1400, 180)
 nodes/fragment/2/node = SubResource("VisualShaderNodeInput_5gesc")
-nodes/fragment/2/position = Vector2(40, 80)
+nodes/fragment/2/position = Vector2(-20, 40)
 nodes/fragment/3/node = SubResource("VisualShaderNodeFloatParameter_v7xxd")
 nodes/fragment/3/position = Vector2(40, 320)
 nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_bewms")

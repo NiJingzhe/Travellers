@@ -230,7 +230,7 @@ tree_root = SubResource("AnimationNodeStateMachine_af1u5")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Idle/blend_position = Vector2(-0.0678179, 0.295652)
-parameters/Walk/blend_position = Vector2(-0.00565147, 0.982609)
+parameters/Walk/blend_position = Vector2(-0.00576001, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 5.0
@@ -238,26 +238,17 @@ libraries = {
 "": SubResource("AnimationLibrary_xnpjr")
 }
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.707107, -0.142184, 0.692664, 0, 0.979575, 0.201078, -0.707107, -0.142184, 0.692664, 0, 0.136738, 0)
-gi_mode = 2
-shaded = true
-texture = ExtResource("2_2kfbo")
-hframes = 4
-vframes = 6
-frame = 2
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.134864, 0)
 shape = SubResource("CapsuleShape3D_4vu74")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.353553, 0.612373, 0, 0.866026, 0.499999, -0.707107, -0.353553, 0.612373, 3.659, 3.071, 3.659)
+transform = Transform3D(0.707107, -0.241845, 0.664463, 0, 0.939693, 0.34202, -0.707107, -0.241845, 0.664463, 10.977, 5.5, 10.977)
 projection = 1
 current = true
-fov = 25.0
-size = 15.0
-far = 40.0
+fov = 15.0
+size = 25.0
+far = 800.0
 
 [node name="PlayerArea" type="Area3D" parent="."]
 
@@ -277,3 +268,14 @@ script = ExtResource("5_kw5ey")
 [node name="ClimbState" type="Node" parent="PlayerFSM"]
 unique_name_in_owner = true
 script = ExtResource("6_gdmk5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.707107, -0.264887, 0.655618, -1.86265e-08, 0.927184, 0.374606, -0.707107, -0.264887, 0.655618, 1.74623e-10, 0.136738, 3.49246e-10)
+gi_mode = 2
+billboard = 1
+shaded = true
+double_sided = false
+texture = ExtResource("2_2kfbo")
+hframes = 4
+vframes = 6
+frame = 2
